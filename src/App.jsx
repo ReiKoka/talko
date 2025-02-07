@@ -1,9 +1,19 @@
+import { Route, Routes } from "react-router"
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
+import ProtectedRoute from "./pages/ProtectedRoute"
+import ChatPage from "./pages/ChatPage"
+
+
 function App() {
-  return <div className="bg-background font-raleway text-foreground h-dvh w-dvw flex items-center justify-center p-8">
-    <div className="w-full max-w-[1600px] h-full">
-      hello
-    </div>
-  </div>;
+  return (
+   <Routes>
+    <Route path="/login" element={<LoginPage />} />
+    <Route path="/register" element={<RegisterPage />} />
+    <ProtectedRoute path="/" element={<ChatPage />} />
+
+   </Routes>
+  )
 }
 
-export default App;
+export default App

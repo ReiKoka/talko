@@ -46,5 +46,54 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-raleway: "Raleway", sans-serif;
+  --font-karla: "Karla", sans-serif;
+  --font-work: "Work Sans", sans-serif;
+  --shadow-custom: hsla(276, 10%, 10%, 0.16) 0px 10px 36px 0px,
+    hsla(276, 10%, 10%, 0.06) 0px 0px 0px 1px;
 }
+
+/* 
+"users": [
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "profilePicture": "link_to_profile_pic",
+    "status": "Online"
+  }
+]
+
+"chats": [
+  {
+    "id": 1,
+    "participants": [1, 2], // user ids
+    "lastMessage": {
+      "senderId": 2,
+      "content": "Hello!",
+      "timestamp": "2025-02-06T14:30:00Z"
+    },
+    "unreadCount": 1
+  }
+]
+
+"messages": [
+  {
+    "id": 1,
+    "chatId": 1, // chat id
+    "senderId": 1,
+    "content": "Hi, how are you?",
+    "timestamp": "2025-02-06T14:32:00Z",
+    "status": "delivered" // could be "sent", "delivered", "read"
+  }
+]
+
+"media": [
+  {
+    "id": 1,
+    "messageId": 2,
+    "url": "link_to_media",
+    "type": "image", // could be "video", "audio", etc.
+    "timestamp": "2025-02-06T14:35:00Z"
+  }
+]
+*/
