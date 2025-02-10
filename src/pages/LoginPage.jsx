@@ -10,7 +10,7 @@ import { showToast } from "../utils/toast";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setToken } = useAuth();
+  const { setToken, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,6 +19,7 @@ function LoginPage() {
     const user = { email, password };
     const data = await login(user);
     setToken(data.accessToken);
+    setUser(data.user);
     navigate("/");
     showToast("success", `Login successful!`);
   };
