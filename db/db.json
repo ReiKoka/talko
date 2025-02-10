@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "email": "john.doe@example.com",
+      "email": "reikoka1@outlook.com",
+      "password": "$2a$10$0hJu5Y7ASEXtjCjVERvQZuuXn7XPRlRNFWs8doYD2cN8fKnK96VY.",
+      "id": "rFHxtYL",
       "profilePicture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "status": "Online"
-    }, 
+      "status": "online"
+    },
     {
-      "id": "2",
-      "name": "Jonas Doe",
-      "email": "jonas.doe@example.com",
-      "profilePicture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "status": "Online"
+      "email": "reikoka1@hotmail.com",
+      "password": "$2a$10$P67CoVFTuJ1bYZStUVi7PejQ.cx7cHZAYXj9lm3mmPHH1x6IVbnMi",
+      "profilePicture": "https://mighty.tools/mockmind-api/content/human/80.jpg",
+      "status": "offline",
+      "id": "uzPIa7q"
     }
   ],
   "chats": [],
