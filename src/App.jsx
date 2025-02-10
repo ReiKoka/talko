@@ -16,7 +16,7 @@ function App() {
           <Route index element={<AppLayout />} />
         </Route>
       </Routes>
-      <Toaster duration={10000} />
+      <Toaster duration={3000} />
     </>
   );
 }
