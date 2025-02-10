@@ -18,7 +18,6 @@ function LoginPage() {
     if (!email || !password) showToast("error", "Fields are empty");
     const user = { email, password };
     const data = await login(user);
-    console.log(data);
     setToken(data.accessToken);
     navigate("/");
     showToast("success", `Login successful!`);
@@ -28,7 +27,7 @@ function LoginPage() {
     <div className="bg-muted font-primary flex h-dvh w-full items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-background text-foreground shadow-custom flex w-[90%] max-w-[500px] flex-col gap-8 rounded-xl p-4"
+        className="bg-background text-foreground shadow-custom flex w-[90%] max-w-[500px] flex-col gap-4 rounded-xl p-4 md:gap-8"
       >
         <h1 className="text-center text-2xl font-bold tracking-wide">Login</h1>
         <div className="flex flex-col gap-4">
@@ -36,7 +35,7 @@ function LoginPage() {
             id="email"
             type="email"
             label="Email"
-            placeholder="example@domain.com"
+            placeholder="e.g. example@domain.com"
             icon={<HiEnvelope />}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -51,12 +50,15 @@ function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Link
-          to="/register"
-          className="text-foreground hover:text-primary mx-auto my-0 w-fit text-sm hover:underline hover:underline-offset-2"
-        >
-          Don`t have an account? Register here
-        </Link>
+        <p className="text-foreground mx-auto my-0 flex w-fit gap-2 text-sm">
+          <span>Don&apos;t have an account?</span>
+          <Link
+            to="/register"
+            className="text-primary hover:text-primary hover:underline hover:underline-offset-4"
+          >
+            Register here
+          </Link>
+        </p>
         <div className="flex flex-col items-center justify-end gap-4 sm:flex-row">
           <Button type="reset" variant="secondary">
             <HiMiniTrash />

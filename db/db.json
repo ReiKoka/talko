@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "fullName": "Rei Koka",
       "email": "reikoka1@outlook.com",
       "password": "$2a$10$0hJu5Y7ASEXtjCjVERvQZuuXn7XPRlRNFWs8doYD2cN8fKnK96VY.",
       "id": "rFHxtYL",
@@ -8,11 +9,20 @@
       "status": "online"
     },
     {
+      "fullName": "Rei Koka",
       "email": "reikoka1@hotmail.com",
       "password": "$2a$10$P67CoVFTuJ1bYZStUVi7PejQ.cx7cHZAYXj9lm3mmPHH1x6IVbnMi",
       "profilePicture": "https://mighty.tools/mockmind-api/content/human/80.jpg",
       "status": "offline",
       "id": "uzPIa7q"
+    },
+    {
+      "email": "tomas@tomas.com",
+      "password": "$2a$10$rqu8sRDgkCP7Zhfe4vWf.uxl29mcAZVUthAxrTtGHSAR4PXoTJt6i",
+      "name": "Tomas Jefferson",
+      "avatar": "somewhere",
+      "status": "offline",
+      "id": "ahUdsbm"
     }
   ],
   "chats": [],
