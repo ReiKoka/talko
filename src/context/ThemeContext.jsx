@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { applyTheme } from "../utils/applyTheme";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -9,10 +9,11 @@ const ThemeContext = createContext(null);
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useLocalStorage("theme", "light");
 
-  applyTheme(theme);
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const setThemeAndPersist = (newTheme) => {
-    applyTheme(newTheme);
     setTheme(newTheme);
   };
 
