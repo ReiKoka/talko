@@ -3,7 +3,7 @@ export function applyTheme(theme) {
 
   root.classList.remove("light", "dark");
 
-  const effectiveTheme = theme;
+  const effectiveTheme = theme === "light" ? "light" : "dark";
 
   root.classList.add(effectiveTheme);
 }
