@@ -18,6 +18,7 @@ function LoginPage() {
     if (!email || !password) showToast("error", "Fields are empty");
     const user = { email, password };
     const data = await login(user);
+    console.log(data)
     setToken(data.accessToken);
     setUser(data.user);
     navigate("/");

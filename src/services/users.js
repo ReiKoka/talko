@@ -25,3 +25,16 @@ export const register = async (user) => {
     throw error;
   }
 };
+
+export const getUser = async (id) => {
+  if (!id) throw new Error("Id is missing");
+
+  try {
+    const res = await axios.get(`${URL}/users/${id}`);
+
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
