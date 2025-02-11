@@ -5,25 +5,30 @@ import { getUser } from "../services/users";
 import { useEffect } from "react";
 
 function ProtectedRoute() {
-  const { token, setUser } = useAuth();
+  const { token, setUser, setToken } = useAuth();
 
   useEffect(() => {
     if (token) {
-      const { sub: userId } = jwtDecode(token);
+      const { sub: userId, exp } = jwtDecode(token);
 
-      const fetchUser = async () => {
-        try {
-          const user = await getUser(userId);
-          console.log(user);
-          setUser(user);
-        } catch (error) {
-          console.error("Failed to fetch user:", error);
-        }
-      };
+      const isTokenExpired = exp * 1000 < Date.now();
 
-      fetchUser();
+      if (isTokenExpired) {
+        setToken("");
+      } else {
+        const fetchUser = async () => {
+          try {
+            const user = await getUser(userId);
+            console.log(user);
+            setUser(user);
+          } catch (error) {
+            console.error("Failed to fetch user:", error);
+          }
+        };
+        fetchUser();
+      }
     }
-  }, [token, setUser]);
+  }, [token, setUser, setToken]);
 
   return token ? <Outlet /> : <Navigate to="/login" replace />;
 }
