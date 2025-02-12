@@ -25,7 +25,7 @@ function NavLinks() {
               }`
             }
           >
-            <HiOutlineChatBubbleLeftEllipsis className="h-6 w-6" />
+            <HiOutlineChatBubbleLeftEllipsis className="h-6 w-6" strokeWidth={2} />
           </NavLink>
         </li>
       </ul>
@@ -37,23 +37,23 @@ function NavLinks() {
             <NavLink
               to="/profile"
               className={({ isActive }) =>
-                `focus-visible:ring-primary flex h-full w-full items-center justify-center rounded-full ${user ? "" : "p-2"} focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-75 ${
+                `focus-visible:ring-primary flex h-full w-full items-center justify-center rounded-full ${user?.profilePicture ? "p-1" : "p-2"} focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-75 ${
                   isActive
-                    ? "bg-primary text-primary-foreground focus:ring-primary transition-all duration-300 ease-in-out"
-                    : "text-muted-foreground transition-all duration-300 ease-in-out"
+                    ? `${user?.profilePicture ? "bg-primary" : "bg-primary"} text-primary-foreground focus:ring-primary transition-all duration-300 ease-in-out`
+                    : `text-muted-foreground transition-all duration-300 ease-in-out`
                 }`
               }
             >
-              {user ? (
+              {user?.profilePicture ? (
                 <div className="aspect-square w-full rounded-full">
                   <img
                     src={user?.profilePicture}
                     alt="user-avatar"
-                    className="h-full w-full object-top object-cover rounded-full"
+                    className="h-full w-full rounded-full object-cover object-top"
                   />
                 </div>
               ) : (
-                <HiOutlineUser className="h-6 w-6" />
+                <HiOutlineUser className="h-6 w-6" strokeWidth={2}/>
               )}
             </NavLink>
           </li>
