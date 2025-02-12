@@ -35,6 +35,16 @@
         "timestamp": "2025-02-06T14:30:00Z"
       },
       "unreadCount": 1
+    },
+    {
+      "id": 2,
+      "participants": ["rFHxtYL", "ahUdsbm"],
+      "lastMessage": {
+        "senderId": 2,
+        "content": "Hello!",
+        "timestamp": "2025-02-06T14:30:00Z"
+      },
+      "unreadCount": 1
     }
   ],
   "messages": [],

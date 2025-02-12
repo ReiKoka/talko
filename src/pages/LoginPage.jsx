@@ -1,4 +1,9 @@
-import { HiEnvelope, HiLockClosed, HiMiniTrash } from "react-icons/hi2";
+import {
+  HiEnvelope,
+  HiLockClosed,
+  HiMiniArrowRightOnRectangle,
+  HiOutlineTrash,
+} from "react-icons/hi2";
 import Input from "../components/ui/Input";
 import { useState } from "react";
 import Button from "../components/ui/Button";
@@ -68,11 +73,11 @@ function LoginPage() {
         </p>
         <div className="flex flex-col items-center justify-end gap-4 sm:flex-row">
           <Button type="reset" variant="secondary">
-            <HiMiniTrash />
+            <HiOutlineTrash />
             <span>Reset</span>
           </Button>
           <Button type="submit" variant="primary">
-            <HiMiniTrash />
+            <HiMiniArrowRightOnRectangle />
             <span>Sign In</span>
           </Button>
         </div>

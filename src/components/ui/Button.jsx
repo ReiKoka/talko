@@ -9,7 +9,7 @@ function Button({ title, type = "button", variant, onClick, children }) {
       buttonStyles = `${baseStyles} rounded-md px-4 py-2  bg-primary text-primary-foreground border-2 border-primary hover:translate-y-[-3px]`;
       break;
     case "secondary":
-      buttonStyles = `${baseStyles} rounded-md px-4 py-2 bg-transparent text-secondary-foreground border-2 border-secondary-foreground hover:border-primary hover:text-primary hover:translate-y-[-3px]`;
+      buttonStyles = `${baseStyles} rounded-md px-4 py-2 bg-secondary text-secondary-foreground border-2 border-secondary hover:border-primary hover:translate-y-[-3px]`;
       break;
     case "icon":
       buttonStyles = `${baseStyles} aspect-square p-2 group`;
@@ -20,7 +20,7 @@ function Button({ title, type = "button", variant, onClick, children }) {
 
   return (
     <button
-      title="Logout"
+      title={title}
       type={type}
       className={buttonStyles}
       onClick={onClick}
