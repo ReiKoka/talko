@@ -18,11 +18,14 @@ function LoginPage() {
     if (!email || !password) showToast("error", "Fields are empty");
     const user = { email, password };
     const data = await login(user);
-    console.log(data);
+
     setToken(data.accessToken);
     setUser(data.user);
     navigate("/");
-    showToast("success", `Login successful!`);
+    showToast(
+      "success",
+      `Welcome back ${data.user?.fullName.split(" ").at(0)}`,
+    );
   };
 
   if (token) return <Navigate to="/" replace />;

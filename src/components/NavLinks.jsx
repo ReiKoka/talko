@@ -8,12 +8,14 @@ import ThemeToggle from "./ui/ThemeToggle";
 import { useAuth } from "../context/AuthContext";
 import Button from "./ui/Button";
 import NavItem from "./NavItem";
+import { showToast } from "./../utils/toast";
 
 function NavLinks() {
-  const { user } = useAuth();
+  const { user, setToken } = useAuth();
 
   const handleLogout = () => {
-    console.log("hi");
+    showToast("info", `Goodbye ${user?.fullName.split(" ").at(0)}`);
+    setToken("");
   };
 
   return (
