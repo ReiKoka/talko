@@ -47,6 +47,24 @@
       "unreadCount": 1
     }
   ],
-  "messages": [],
-  "media": []
+  "messages": [
+    {
+      "id": 1,
+      "chatId": 1,
+      "senderId": 1,
+      "content": "Hi, how are you?",
+      "timestamp": "2025-02-06T14:32:00Z",
+      "status": "delivered"
+    }
+  ],
+
+  "media": [
+    {
+      "id": 1,
+      "messageId": 2,
+      "url": "link_to_media",
+      "type": "image",
+      "timestamp": "2025-02-06T14:35:00Z"
+    }
+  ]
 }

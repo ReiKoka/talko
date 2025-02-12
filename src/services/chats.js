@@ -4,9 +4,11 @@ import { URL } from "./../utils/constants";
 export const getChatsForUser = async (userId) => {
   try {
     if (!userId) throw new Error(`User Id is required`);
-    const response = axios.get(`${URL}/chats?participants_like=${userId}`);
+    const response = await axios.get(
+      `${URL}/chats?participants_like=${userId}`,
+    );
 
-    console.log(response);
+    return response.data;
   } catch (error) {
     console.error(error);
     throw error;

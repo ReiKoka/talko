@@ -7,7 +7,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import AppLayout from "./pages/AppLayout";
 
 import Profile from "./components/Profile";
-import ChatsContainer from "./components/ChatsContainer";
+import Chats from "./components/Chats";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
-            <Route index element={<ChatsContainer />} />
+            <Route index element={<Chats />} />
             <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
