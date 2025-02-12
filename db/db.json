@@ -25,7 +25,18 @@
       "id": "ahUdsbm"
     }
   ],
-  "chats": [],
+  "chats": [
+    {
+      "id": 1,
+      "participants": ["rFHxtYL", "uzPIa7q"],
+      "lastMessage": {
+        "senderId": 2,
+        "content": "Hello!",
+        "timestamp": "2025-02-06T14:30:00Z"
+      },
+      "unreadCount": 1
+    }
+  ],
   "messages": [],
   "media": []
 }

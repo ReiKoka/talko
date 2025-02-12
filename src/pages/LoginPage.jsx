@@ -2,7 +2,7 @@ import { HiEnvelope, HiLockClosed, HiMiniTrash } from "react-icons/hi2";
 import Input from "../components/ui/Input";
 import { useState } from "react";
 import Button from "../components/ui/Button";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { login } from "../services/users";
 import { useAuth } from "../context/AuthContext";
 import { showToast } from "../utils/toast";
@@ -10,7 +10,7 @@ import { showToast } from "../utils/toast";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setToken, setUser } = useAuth();
+  const { token, setToken, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -18,12 +18,14 @@ function LoginPage() {
     if (!email || !password) showToast("error", "Fields are empty");
     const user = { email, password };
     const data = await login(user);
-    console.log(data)
+    console.log(data);
     setToken(data.accessToken);
     setUser(data.user);
     navigate("/");
     showToast("success", `Login successful!`);
   };
+
+  if (token) return <Navigate to="/" replace />;
 
   return (
     <div className="bg-muted font-primary flex h-dvh w-full items-center justify-center">

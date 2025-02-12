@@ -1,4 +1,12 @@
-function Input({ id, type = "text", label, placeholder = "", icon, value, onChange }) {
+function Input({
+  id,
+  type = "text",
+  label,
+  placeholder = "",
+  icon,
+  value,
+  onChange,
+}) {
   return (
     <div>
       <label
@@ -16,7 +24,7 @@ function Input({ id, type = "text", label, placeholder = "", icon, value, onChan
           id={id}
           className={`border-muted block w-full rounded-lg border p-2.5 ${icon ? "ps-10" : ""} text-foreground focus-visible:border-primary focus-visible:ring-primary text-sm focus-visible:ring-1 focus-visible:outline-0`}
           placeholder={placeholder}
-          autoComplete="true"
+          autoComplete="on"
           value={value}
           onChange={onChange}
         />
