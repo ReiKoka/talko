@@ -49,9 +49,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --font-primary: "Karla", sans-serif;
-  --shadow-custom: hsla(276, 10%, 10%, 0.16) 0px 10px 36px 0px,
-    hsla(276, 10%, 10%, 0.06) 0px 0px 0px 1px;
-  --shadow-toast: hsla(276, 10%, 10%, 0.16) 0px 2px 4px 0px,
+  --shadow-light: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  --shadow-dark: hsla(276, 10%, 10%, 0.16) 0px 2px 4px 0px,
     hsla(276, 10%, 10%, 0.32) 0px 2px 16px 0px;
 }
 

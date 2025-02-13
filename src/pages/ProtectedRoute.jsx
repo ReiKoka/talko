@@ -19,7 +19,7 @@ function ProtectedRoute() {
         const fetchUser = async () => {
           try {
             const user = await getUser(userId);
-            console.log(user);
+
             setUser(user);
           } catch (error) {
             console.error("Failed to fetch user:", error);

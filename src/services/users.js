@@ -27,7 +27,7 @@ export const register = async (user) => {
 };
 
 export const getUser = async (id) => {
-  if (!id) throw new Error("Id is missing");
+  if (!id) return;
 
   try {
     const res = await axios.get(`${URL}/users/${id}`);

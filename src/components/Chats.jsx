@@ -18,17 +18,36 @@ function Chats() {
     const fetchChats = async () => {
       try {
         const fetchedChats = await getChatsForUser(user.id);
+        const userCache = new Map();
+        const chatIds = new Set();
 
-        // Fetch user data for the other participant in each chat
         const updatedChats = await Promise.all(
           fetchedChats.map(async (chat) => {
-            const otherParticipant = chat.participants.find(
-              (p) => p.id !== user.id,
-            );
-            if (!otherParticipant) return null;
+            if (chatIds.has(chat.id)) return null;
 
-            const userData = await getUser(otherParticipant?.id);
-            return { ...chat, otherParticipant: userData };
+            chatIds.add(chat.id);
+            const otherParticipant = chat.participants.find(
+              (id) => id !== user.id,
+            );
+
+            // Check cache before making a request
+            if (!userCache.has(otherParticipant)) {
+              try {
+                const userData = await getUser(otherParticipant);
+                userCache.set(otherParticipant, userData);
+              } catch (error) {
+                console.error(
+                  `Failed to fetch user ${otherParticipant}:`,
+                  error,
+                );
+                userCache.set(otherParticipant, null);
+              }
+            }
+
+            return {
+              ...chat,
+              otherParticipant: userCache.get(otherParticipant),
+            };
           }),
         );
 
@@ -41,10 +60,6 @@ function Chats() {
     fetchChats();
   }, [user]);
 
-  useEffect(() => {
-    console.log(chats);
-  }, [chats]);
-
   return (
     <>
       <div className="flex items-end justify-between pb-2 lg:pb-4">
@@ -56,7 +71,8 @@ function Chats() {
           />
         </Button>
       </div>
-      <div className="divide-secondary flex flex-col divide-y-1">
+
+      <div className="flex flex-col overflow-y-auto">
         {chats?.map((chat) => (
           <SingleChat key={chat?.id} chat={chat} />
         ))}

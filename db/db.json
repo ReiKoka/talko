@@ -19,7 +19,7 @@
     {
       "email": "tomas@tomas.com",
       "password": "$2a$10$rqu8sRDgkCP7Zhfe4vWf.uxl29mcAZVUthAxrTtGHSAR4PXoTJt6i",
-      "name": "Tomas Jefferson",
+      "fullName": "Tomas Jefferson",
       "avatar": "somewhere",
       "status": "offline",
       "id": "ahUdsbm"
@@ -30,9 +30,9 @@
       "id": 1,
       "participants": ["rFHxtYL", "uzPIa7q"],
       "lastMessage": {
-        "senderId": 2,
-        "content": "Hello!",
-        "timestamp": "2025-02-06T14:30:00Z"
+        "senderId": "uzPIa7q",
+        "content": "Hello lorem10asdnfajwefnasjdnjnwejnajnnjkdnjkasndfnaejkfnajksdnfajkwnefkjasndfjanskjdfnasjkfnajknejfkanwjfnasjkdnfajkwenakjdsnf!",
+        "timestamp": "2025-02-11T14:30:00Z"
       },
       "unreadCount": 1
     },
@@ -40,7 +40,7 @@
       "id": 2,
       "participants": ["rFHxtYL", "ahUdsbm"],
       "lastMessage": {
-        "senderId": 2,
+        "senderId": "rFHxtYL",
         "content": "Hello!",
         "timestamp": "2025-02-06T14:30:00Z"
       },

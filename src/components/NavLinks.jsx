@@ -26,7 +26,13 @@ function NavLinks() {
 
       <div className="flex items-center gap-4 lg:flex-col lg:justify-center">
         <ThemeToggle />
-        <Button type="button" variant="icon" onClick={handleLogout}>
+        <Button
+          title="Logout"
+          type="button"
+          variant="icon"
+          onClick={handleLogout}
+         
+        >
           <HiArrowLeftOnRectangle className="text-muted-foreground group-hover:text-primary h-6 w-6 transition-all duration-300 ease-out group-hover:scale-110 group-active:scale-75" />
         </Button>
         <ul>

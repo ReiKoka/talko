@@ -13,7 +13,7 @@ import { register } from "../services/users";
 import { showToast } from "../utils/toast";
 
 function RegisterPage() {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -23,9 +23,10 @@ function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !password) showToast("error", "Fields are empty");
+    if (!fullName || !email || !password)
+      showToast("error", "Fields are empty");
 
-    const obj = { name, email, password, avatar, status: "offline" };
+    const obj = { fullName, email, password, avatar, status: "offline" };
     await register(obj);
     showToast("success", `New user created successfully!`);
     navigate("/login");
@@ -48,7 +49,7 @@ function RegisterPage() {
             placeholder="e.g. John Doe"
             icon={<HiUser />}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setFullName(e.target.value)}
           />
           <Input
             id="email"
