@@ -10,7 +10,7 @@ function Button({
   children,
 }) {
   const baseStyles =
-    "text-sm font-medium focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none flex items-center gap-2 justify-center cursor-pointer transition-all duration-300 ease-out w-full sm:w-fit";
+    "text-sm font-medium focus-visible:ring-primary dark:focus-visible:ring-offset-muted focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none flex items-center gap-2 justify-center cursor-pointer transition-all duration-300 ease-out w-full sm:w-fit";
 
   const variantStyles = {
     primary:

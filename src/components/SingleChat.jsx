@@ -1,15 +1,16 @@
 import { HiUser } from "react-icons/hi2";
 import { formatMessageTime } from "../utils/helpers";
 import { useAuth } from "../context/AuthContext";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 function SingleChat({ chat }) {
   const { user } = useAuth();
   const isUserLastSender = user.id === chat?.lastMessage.senderId;
-  
-  console.log(isUserLastSender);
+
+  console.log(chat);
 
   return (
-    <div className="grid grid-cols-[50px_1fr] gap-2 py-2.5 lg:gap-4">
+    <div className="hover:bg-secondary grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4">
       <div className="bg-secondary h-full max-h-[50px] w-full max-w-[50px] rounded-full">
         {chat?.otherParticipant?.profilePicture ? (
           <img
@@ -29,8 +30,13 @@ function SingleChat({ chat }) {
           <p className="font-primary text-foreground truncate text-lg font-medium">
             {chat?.otherParticipant?.fullName}
           </p>
-          <p className="font-primary text-foreground truncate text-base font-normal">
-            {chat?.lastMessage?.content}
+          <p className="font-primary text-foreground flex items-center gap-2 truncate text-base font-normal">
+            {isUserLastSender && (
+              <IoCheckmarkDoneSharp
+                className={`${chat?.unreadCount > 0 ? "text-muted-foreground " : "text-primary dark:text-purple-500"} h-4 w-4 `}
+              />
+            )}{" "}
+            <span>{chat?.lastMessage?.content}</span>
           </p>
         </div>
 

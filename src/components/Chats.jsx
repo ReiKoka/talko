@@ -62,7 +62,7 @@ function Chats() {
 
   return (
     <>
-      <div className="flex items-end justify-between pb-2 lg:pb-4">
+      <div className="flex items-end justify-between px-2 pb-2 lg:pb-4 lg:px-4">
         <Title title="Chats" />
         <Button variant="icon" title="New chat" className="h-8 w-8 p-0">
           <HiOutlinePlusCircle
