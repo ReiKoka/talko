@@ -8,6 +8,8 @@ import { getChatsForUser } from "../services/chats";
 import SingleChat from "./SingleChat";
 import { getUser } from "../services/users";
 
+import NoMail from "/src/assets/nomail.svg?react";
+
 function Chats() {
   const { user } = useAuth();
   const [chats, setChats] = useState([]);
@@ -62,7 +64,7 @@ function Chats() {
 
   return (
     <>
-      <div className="flex items-end justify-between px-2 pb-2 lg:pb-4 lg:px-4">
+      <div className="flex items-end justify-between px-2 pb-2 lg:px-4 lg:pb-4">
         <Title title="Chats" />
         <Button variant="icon" title="New chat" className="h-8 w-8 p-0">
           <HiOutlinePlusCircle
@@ -73,9 +75,19 @@ function Chats() {
       </div>
 
       <div className="flex flex-col overflow-y-auto">
-        {chats?.map((chat) => (
-          <SingleChat key={chat?.id} chat={chat} />
-        ))}
+        {chats.length ? (
+          chats?.map((chat) => <SingleChat key={chat?.id} chat={chat} />)
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-4">
+            <NoMail className="w-72" />
+            <h3 className="text-foreground font-primary px-2 text-xl font-bold lg:px-4">
+              Welcome to the Talko 🎉🎉🎉
+            </h3>
+            <p className="font-primary text-foreground">
+              The world’s better when we communicate—let’s start talking!
+            </p>
+          </div>
+        )}
       </div>
     </>
   );
