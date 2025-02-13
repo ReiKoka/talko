@@ -10,7 +10,7 @@ function SingleChat({ chat }) {
   console.log(chat);
 
   return (
-    <div className="hover:bg-secondary grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4">
+    <div className="hover:bg-secondary/50 group grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4">
       <div className="bg-secondary h-full max-h-[50px] w-full max-w-[50px] rounded-full">
         {chat?.otherParticipant?.profilePicture ? (
           <img
@@ -33,7 +33,7 @@ function SingleChat({ chat }) {
           <p className="font-primary text-foreground flex items-center gap-2 truncate text-base font-normal">
             {isUserLastSender && (
               <IoCheckmarkDoneSharp
-                className={`${chat?.unreadCount > 0 ? "text-muted-foreground " : "text-primary dark:text-purple-500"} h-4 w-4 `}
+                className={`${chat?.unreadCount > 0 ? "text-muted-foreground" : "text-primary dark:text-purple-500"} h-4 w-4`}
               />
             )}{" "}
             <span>{chat?.lastMessage?.content}</span>
@@ -45,7 +45,8 @@ function SingleChat({ chat }) {
             {formatMessageTime(chat?.lastMessage?.timestamp)}
           </p>
         </div>
-        <div className="border-b-secondary absolute -bottom-2.5 left-0 w-full border-b"></div>
+
+        <div className="border-b-secondary/50 absolute -bottom-2.5 left-0 w-full border-b group-hover:border-b-0"></div>
       </div>
     </div>
   );
