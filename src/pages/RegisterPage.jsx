@@ -48,7 +48,7 @@ function RegisterPage() {
             label="Name"
             placeholder="e.g. John Doe"
             icon={<HiUser />}
-            value={name}
+            value={fullName}
             onChange={(e) => setFullName(e.target.value)}
           />
           <Input
