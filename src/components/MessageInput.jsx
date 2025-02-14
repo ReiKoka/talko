@@ -5,7 +5,7 @@ import { useChats } from "../hooks/useChats";
 import { createMessage } from "../services/messages";
 import { showToast } from "../utils/toast";
 
-function MessageInput() {
+function MessageInput({ messages, setMessages }) {
   const [text, setText] = useState("");
   const { user } = useAuth();
   const { selectedChat } = useChats();
@@ -29,6 +29,7 @@ function MessageInput() {
     await createMessage(message);
     showToast("success", `Message sent!`);
     setText("");
+    setMessages([...messages, message]);
   };
 
   return (

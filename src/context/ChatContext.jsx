@@ -6,7 +6,6 @@ export const ChatProvider = ({ children }) => {
 
   console.log(selectedChat);
 
-
   return (
     <ChatContext.Provider value={{ selectedChat, setSelectedChat }}>
       {children}

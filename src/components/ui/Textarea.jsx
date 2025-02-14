@@ -21,7 +21,7 @@ function Textarea({ id, value, onChange }) {
         ref={textareaRef}
         rows={1}
         onInput={adjustHeight}
-        className="border-secondary block h-auto w-full resize-none overflow-hidden rounded-md border px-3 pt-2 outline-0"
+        className="border-secondary block h-auto w-full text-foreground dark:border-muted-foreground resize-none overflow-hidden rounded-md border px-3 pt-2 outline-0"
         placeholder="Type message..."
         value={value}
         onChange={onChange}

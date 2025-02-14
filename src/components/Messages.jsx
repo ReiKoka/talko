@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useChats } from "../hooks/useChats";
 import Topography from "/src/assets/topography.svg?react";
 import { getSingleChatMessages } from "../services/messages";
-import { formatMessageTime } from "../utils/helpers";
-import SingleMessage from "./SingleMessage";
 import MessageHeader from "./MessageHeader";
 import MessageContent from "./MessageContent";
 import MessageInput from "./MessageInput";
@@ -33,7 +31,7 @@ function Messages() {
           <div className="flex h-full flex-col overflow-hidden">
             <MessageHeader selectedChat={selectedChat} />
             <MessageContent messages={messages} />
-            <MessageInput />
+            <MessageInput messages={messages} setMessages={setMessages} />
           </div>
         )}
       </div>
