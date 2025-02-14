@@ -40,7 +40,7 @@
       "lastMessage": {
         "senderId": "uzPIa7q",
         "content": "Hello lorem10asdnfajwefnasjdnjnwejnajnnjkdnjkasndfnaejkfnajksdnfajkwnefkjasndfjanskjdfnasjkfnajknejfkanwjfnasjkdnfajkwenakjdsnf!",
-        "timestamp": "2025-02-11T14:30:00Z"
+        "timestamp": "2025-02-14T14:30:00Z"
       },
       "unreadCount": 1
     },
@@ -133,7 +133,7 @@
       "chatId": 1,
       "senderId": "uzPIa7q",
       "content": "Just chilling, watching a show. Thinking about grabbing some food soon.",
-      "timestamp": "2025-02-06T14:36:00Z",
+      "timestamp": "2025-02-14T14:36:00Z",
       "status": "delivered"
     },
     {
@@ -141,7 +141,15 @@
       "chatId": 1,
       "senderId": "rFHxtYL",
       "content": "Nice, what show?",
-      "timestamp": "2025-02-06T14:36:20Z",
+      "timestamp": "2025-02-14T14:36:20Z",
+      "status": "delivered"
+    },
+    {
+      "id": 12,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "ATIS",
+      "timestamp": "2025-02-14T14:36:20Z",
       "status": "delivered"
     }
   ],

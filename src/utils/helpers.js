@@ -5,7 +5,7 @@ export const formatMessageTime = (date) => {
   const weekStart = startOfWeek(new Date(), { weekStartsOn: 1 });
 
   if (isToday(messageDate)) {
-    return format(messageDate, "h:mm a");
+    return "Today";
   }
 
   if (isYesterday(messageDate)) {

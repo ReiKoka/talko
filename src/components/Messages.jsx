@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useChats } from "../hooks/useChats";
 import Topography from "/src/assets/topography.svg?react";
 import { getSingleChatMessages } from "../services/messages";
-import { isPicture } from "../utils/helpers";
-import { HiUser } from "react-icons/hi2";
+import { formatMessageTime } from "../utils/helpers";
+import SingleMessage from "./SingleMessage";
+import MessageHeader from "./MessageHeader";
 
 function Messages() {
   const { selectedChat } = useChats();
@@ -22,29 +23,39 @@ function Messages() {
   }, [selectedChat]);
 
   return (
-    <section className="bg-secondary dark:bg-secondary hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
-      <div className="relative h-full w-full">
-        <Topography className="fill-muted/40 absolute top-0 left-0 z-0 h-auto w-full" />
-        {selectedChat && (
-          <div>
-            <div className="bg-muted isolate z-10 flex w-full items-center gap-2 p-2 lg:gap-4 lg:p-4">
-              {isPicture(selectedChat.otherParticipant.profilePicture) ? (
-                <img
-                  src={selectedChat.otherParticipant.profilePicture}
-                  alt=""
-                  className="h-12 w-12 rounded-full"
-                />
-              ) : (
-                <div className="bg-secondary relative h-12 w-12 overflow-hidden rounded-full">
-                  <HiUser className="text-muted-foreground absolute top-3 left-1 h-10 w-10" />
-                </div>
-              )}
-              <p className="text-foreground font-primary text-lg font-medium">
-                {selectedChat.otherParticipant.fullName}
-              </p>
-            </div>
+    <section className="bg-secondary dark:bg-secondary hidden overflow-hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
+      <div className="relative h-full w-full overflow-hidden">
+        <Topography className="fill-muted/40 absolute top-0 left-0 z-10 h-auto w-full" />
 
-            <div>{messages.map((message) => message.content)}</div>
+        {selectedChat && (
+          <div className="flex h-full flex-col overflow-hidden">
+            <MessageHeader selectedChat={selectedChat} />
+
+            <div className="flex flex-grow flex-col gap-2 overflow-y-auto px-2 py-2 lg:gap-4 lg:py-4">
+              {messages.map((message, index) => {
+                const messageDate = new Date(message.timestamp);
+                const formattedDate = formatMessageTime(messageDate);
+
+                const shouldShowDate =
+                  index === 0 ||
+                  formatMessageTime(new Date(messages[index - 1].timestamp)) !==
+                    formattedDate;
+
+                return (
+                  <div
+                    key={message.id}
+                    className="z-20 flex flex-col gap-2 lg:gap-4"
+                  >
+                    {shouldShowDate && (
+                      <div className="font-primary text-background dark:text-foreground bg-border mx-auto w-fit min-w-32 rounded-lg px-4 py-2 text-center text-base">
+                        {formattedDate}
+                      </div>
+                    )}
+                    <SingleMessage message={message} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
