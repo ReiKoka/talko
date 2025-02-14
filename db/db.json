@@ -36,7 +36,10 @@
   "chats": [
     {
       "id": 1,
-      "participants": ["rFHxtYL", "uzPIa7q"],
+      "participants": [
+        "rFHxtYL",
+        "uzPIa7q"
+      ],
       "lastMessage": {
         "senderId": "uzPIa7q",
         "content": "Hello lorem10asdnfajwefnasjdnjnwejnajnnjkdnjkasndfnaejkfnajksdnfajkwnefkjasndfjanskjdfnasjkfnajknejfkanwjfnasjkdnfajkwenakjdsnf!",
@@ -46,7 +49,10 @@
     },
     {
       "id": 2,
-      "participants": ["rFHxtYL", "ahUdsbm"],
+      "participants": [
+        "rFHxtYL",
+        "ahUdsbm"
+      ],
       "lastMessage": {
         "senderId": "rFHxtYL",
         "content": "Hello!",
@@ -108,7 +114,7 @@
       "id": 7,
       "chatId": 1,
       "senderId": "rFHxtYL",
-      "content": "Of course! Squats, lunges, and some leg press. My legs are shaking now.",
+      "content": "Of course! Squats, lunges, and some leg press. My legs are shaking now. Asdasdjandjnajsndfkajnwkajdnakjsd asfnjas njn jnjqnw  kamdm m qmwkdmaksmd mk madm ",
       "timestamp": "2025-02-06T14:34:40Z",
       "status": "delivered"
     },
@@ -151,16 +157,22 @@
       "content": "ATIS",
       "timestamp": "2025-02-14T14:36:20Z",
       "status": "delivered"
-    }
-  ],
-
-  "media": [
+    },
     {
-      "id": 1,
-      "messageId": 2,
-      "url": "link_to_media",
-      "type": "image",
-      "timestamp": "2025-02-06T14:35:00Z"
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Rei Koka",
+      "status": "delivered",
+      "id": 13,
+      "timestamp": "2025-02-14T16:55:01Z"
+    },
+    {
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "JUHUUUUU",
+      "timestamp": "2025-02-14T16:07:50.963Z",
+      "status": "delivered",
+      "id": 14
     }
   ]
 }

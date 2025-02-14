@@ -8,7 +8,7 @@ function Input({
   onChange,
 }) {
   return (
-    <div>
+    <div className="w-full">
       <label
         htmlFor={id}
         className="text-foreground mb-2 block text-sm font-medium"
@@ -22,7 +22,7 @@ function Input({
         <input
           type={type}
           id={id}
-          className={`border-muted block w-full rounded-lg border p-2.5 ${icon ? "ps-10" : ""} text-foreground focus-visible:border-primary focus-visible:ring-primary text-sm focus-visible:ring-1 focus-visible:outline-0`}
+          className={`border-muted block w-full min-w-full rounded-lg border p-2.5 ${icon ? "ps-10" : ""} text-foreground focus-visible:border-primary focus-visible:ring-primary text-sm focus-visible:ring-1 focus-visible:outline-0`}
           placeholder={placeholder}
           autoComplete="on"
           value={value}
