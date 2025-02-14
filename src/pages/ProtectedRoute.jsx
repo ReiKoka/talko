@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router";
-import { useAuth } from "../context/AuthContext";
+
 import { jwtDecode } from "jwt-decode";
 import { getUser } from "../services/users";
 import { useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 
 function ProtectedRoute() {
   const { token, setUser, setToken } = useAuth();

@@ -9,8 +9,9 @@ import { useState } from "react";
 import Button from "../components/ui/Button";
 import { Link, Navigate, useNavigate } from "react-router";
 import { login } from "../services/users";
-import { useAuth } from "../context/AuthContext";
+
 import { showToast } from "../utils/toast";
+import { useAuth } from "../hooks/useAuth";
 
 function LoginPage() {
   const [email, setEmail] = useState("");

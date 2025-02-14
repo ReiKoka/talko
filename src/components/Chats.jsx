@@ -1,7 +1,7 @@
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 import Button from "./ui/Button";
 import Title from "./ui/Title";
-import { useAuth } from "../context/AuthContext";
+
 import { useEffect, useState } from "react";
 import { getChatsForUser } from "../services/chats";
 
@@ -9,6 +9,7 @@ import SingleChat from "./SingleChat";
 import { getUser } from "../services/users";
 
 import NoMail from "/src/assets/nomail.svg?react";
+import { useAuth } from "../hooks/useAuth";
 
 function Chats() {
   const { user } = useAuth();

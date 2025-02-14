@@ -14,3 +14,4 @@ export const getChatsForUser = async (userId) => {
     throw error;
   }
 };
+

@@ -20,7 +20,7 @@
       "email": "tomas@tomas.com",
       "password": "$2a$10$rqu8sRDgkCP7Zhfe4vWf.uxl29mcAZVUthAxrTtGHSAR4PXoTJt6i",
       "fullName": "Tomas Jefferson",
-      "avatar": "somewhere",
+      "profilePicture": "somewhere",
       "status": "offline",
       "id": "ahUdsbm"
     },
@@ -28,7 +28,7 @@
       "email": "johndoe@john.com",
       "password": "$2a$10$SdBIX0xRaVchsGoYMOCME.4y12dT/Mpj7LlhGOuVWAPCtaUyzQKr6",
       "fullName": "John Doe",
-      "avatar": "https://mighty.tools/mockmind-api/content/human/5.jpg",
+      "profilePicture": "https://mighty.tools/mockmind-api/content/human/5.jpg",
       "status": "offline",
       "id": "Z-JrCyl"
     }
@@ -36,10 +36,7 @@
   "chats": [
     {
       "id": 1,
-      "participants": [
-        "rFHxtYL",
-        "uzPIa7q"
-      ],
+      "participants": ["rFHxtYL", "uzPIa7q"],
       "lastMessage": {
         "senderId": "uzPIa7q",
         "content": "Hello lorem10asdnfajwefnasjdnjnwejnajnnjkdnjkasndfnaejkfnajksdnfajkwnefkjasndfjanskjdfnasjkfnajknejfkanwjfnasjkdnfajkwenakjdsnf!",
@@ -49,10 +46,7 @@
     },
     {
       "id": 2,
-      "participants": [
-        "rFHxtYL",
-        "ahUdsbm"
-      ],
+      "participants": ["rFHxtYL", "ahUdsbm"],
       "lastMessage": {
         "senderId": "rFHxtYL",
         "content": "Hello!",
@@ -65,12 +59,93 @@
     {
       "id": 1,
       "chatId": 1,
-      "senderId": 1,
+      "senderId": "rFHxtYL",
       "content": "Hi, how are you?",
       "timestamp": "2025-02-06T14:32:00Z",
       "status": "delivered"
+    },
+    {
+      "id": 2,
+      "chatId": 1,
+      "senderId": "uzPIa7q",
+      "content": "Hey! I'm good, how about you?",
+      "timestamp": "2025-02-06T14:32:30Z",
+      "status": "delivered"
+    },
+    {
+      "id": 3,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Doing well! Just got back from the gym.",
+      "timestamp": "2025-02-06T14:33:00Z",
+      "status": "delivered"
+    },
+    {
+      "id": 4,
+      "chatId": 1,
+      "senderId": "uzPIa7q",
+      "content": "Nice! How was your workout?",
+      "timestamp": "2025-02-06T14:33:15Z",
+      "status": "delivered"
+    },
+    {
+      "id": 5,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Pretty intense! Focused on legs today. Feeling sore already haha.",
+      "timestamp": "2025-02-06T14:33:45Z",
+      "status": "delivered"
+    },
+    {
+      "id": 6,
+      "chatId": 1,
+      "senderId": "uzPIa7q",
+      "content": "Leg day is brutal! Did you hit squats?",
+      "timestamp": "2025-02-06T14:34:10Z",
+      "status": "delivered"
+    },
+    {
+      "id": 7,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Of course! Squats, lunges, and some leg press. My legs are shaking now.",
+      "timestamp": "2025-02-06T14:34:40Z",
+      "status": "delivered"
+    },
+    {
+      "id": 8,
+      "chatId": 1,
+      "senderId": "uzPIa7q",
+      "content": "Haha, sounds like a solid session! Make sure to stretch later.",
+      "timestamp": "2025-02-06T14:35:05Z",
+      "status": "delivered"
+    },
+    {
+      "id": 9,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Yeah, definitely! What are you up to?",
+      "timestamp": "2025-02-06T14:35:30Z",
+      "status": "delivered"
+    },
+    {
+      "id": 10,
+      "chatId": 1,
+      "senderId": "uzPIa7q",
+      "content": "Just chilling, watching a show. Thinking about grabbing some food soon.",
+      "timestamp": "2025-02-06T14:36:00Z",
+      "status": "delivered"
+    },
+    {
+      "id": 11,
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "Nice, what show?",
+      "timestamp": "2025-02-06T14:36:20Z",
+      "status": "delivered"
     }
   ],
+
   "media": [
     {
       "id": 1,

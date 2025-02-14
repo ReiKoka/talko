@@ -5,10 +5,11 @@ import {
 } from "react-icons/hi2";
 
 import ThemeToggle from "./ui/ThemeToggle";
-import { useAuth } from "../context/AuthContext";
+
 import Button from "./ui/Button";
 import NavItem from "./NavItem";
 import { showToast } from "./../utils/toast";
+import { useAuth } from "../hooks/useAuth";
 
 function NavLinks() {
   const { user, setToken } = useAuth();
@@ -31,7 +32,6 @@ function NavLinks() {
           type="button"
           variant="icon"
           onClick={handleLogout}
-         
         >
           <HiArrowLeftOnRectangle className="text-muted-foreground group-hover:text-primary h-6 w-6 transition-all duration-300 ease-out group-hover:scale-110 group-active:scale-75" />
         </Button>

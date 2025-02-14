@@ -14,5 +14,18 @@ export const formatMessageTime = (date) => {
   if (isAfter(messageDate, weekStart)) {
     return format(messageDate, "EEEE");
   }
-  return format(messageDate, "dd/MM/yyyy");;
+  return format(messageDate, "dd/MM/yyyy");
+};
+
+export const isPicture = (filename) => {
+  const validExtensions = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".bmp",
+    ".svg",
+    ".webp",
+  ];
+  return validExtensions.some((ext) => filename.toLowerCase().endsWith(ext));
 };

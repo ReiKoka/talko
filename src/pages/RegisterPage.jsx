@@ -26,7 +26,13 @@ function RegisterPage() {
     if (!fullName || !email || !password)
       showToast("error", "Fields are empty");
 
-    const obj = { fullName, email, password, avatar, status: "offline" };
+    const obj = {
+      fullName,
+      email,
+      password,
+      profilePicture: avatar,
+      status: "offline",
+    };
     await register(obj);
     showToast("success", `New user created successfully!`);
     navigate("/login");

@@ -1,18 +1,22 @@
 import { HiUser } from "react-icons/hi2";
-import { formatMessageTime } from "../utils/helpers";
-import { useAuth } from "../context/AuthContext";
+import { formatMessageTime, isPicture } from "../utils/helpers";
+
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { useAuth } from "../hooks/useAuth";
+import { useChats } from "../hooks/useChats";
 
 function SingleChat({ chat }) {
   const { user } = useAuth();
+  const { setSelectedChat } = useChats();
   const isUserLastSender = user.id === chat?.lastMessage.senderId;
 
-  console.log(chat);
-
   return (
-    <div className="hover:bg-secondary/50 group grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4">
+    <div
+      className="hover:bg-secondary/50 group grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4"
+      onClick={() => setSelectedChat(chat)}
+    >
       <div className="bg-secondary h-full max-h-[50px] w-full max-w-[50px] rounded-full">
-        {chat?.otherParticipant?.profilePicture ? (
+        {isPicture(chat?.otherParticipant?.profilePicture) ? (
           <img
             src={chat?.otherParticipant?.profilePicture}
             alt="friend-profile-picture"
