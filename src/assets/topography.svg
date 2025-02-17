@@ -4,338 +4,133 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:svgjs="http://svgjs.dev/svgjs"
   viewBox="0 0 800 800"
-  opacity="1"
 >
-  <g stroke="currentColor" fill="none" stroke-linecap="round">
-    <circle
-      r="478.5"
-      cx="400"
-      cy="400"
-      stroke-width="11"
-      stroke-dasharray="23 12"
-      stroke-dashoffset="25"
-      transform="rotate(12, 400, 400)"
-      opacity="0.05"
-    ></circle>
-    <circle
-      r="464"
-      cx="400"
-      cy="400"
-      stroke-width="11"
-      stroke-dasharray="16 11"
-      stroke-dashoffset="25"
-      transform="rotate(345, 400, 400)"
-      opacity="0.08"
-    ></circle>
-    <circle
-      r="449.5"
-      cx="400"
-      cy="400"
-      stroke-width="11"
-      stroke-dasharray="27 27"
-      stroke-dashoffset="25"
-      transform="rotate(102, 400, 400)"
-      opacity="0.11"
-    ></circle>
-    <circle
-      r="435"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="47 31"
-      stroke-dashoffset="25"
-      transform="rotate(142, 400, 400)"
-      opacity="0.14"
-    ></circle>
-    <circle
-      r="420.5"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="16 40"
-      stroke-dashoffset="25"
-      transform="rotate(25, 400, 400)"
-      opacity="0.17"
-    ></circle>
-    <circle
-      r="406"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="15 12"
-      stroke-dashoffset="25"
-      transform="rotate(98, 400, 400)"
-      opacity="0.20"
-    ></circle>
-    <circle
-      r="391.5"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="19 45"
-      stroke-dashoffset="25"
-      transform="rotate(247, 400, 400)"
-      opacity="0.23"
-    ></circle>
-    <circle
-      r="377"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="55 48"
-      stroke-dashoffset="25"
-      transform="rotate(73, 400, 400)"
-      opacity="0.26"
-    ></circle>
-    <circle
-      r="362.5"
-      cx="400"
-      cy="400"
-      stroke-width="10"
-      stroke-dasharray="23 23"
-      stroke-dashoffset="25"
-      transform="rotate(303, 400, 400)"
-      opacity="0.29"
-    ></circle>
-    <circle
-      r="348"
-      cx="400"
-      cy="400"
-      stroke-width="9"
-      stroke-dasharray="41 42"
-      stroke-dashoffset="25"
-      transform="rotate(263, 400, 400)"
-      opacity="0.32"
-    ></circle>
-    <circle
-      r="333.5"
-      cx="400"
-      cy="400"
-      stroke-width="9"
-      stroke-dasharray="27 15"
-      stroke-dashoffset="25"
-      transform="rotate(339, 400, 400)"
-      opacity="0.35"
-    ></circle>
-    <circle
-      r="319"
-      cx="400"
-      cy="400"
-      stroke-width="9"
-      stroke-dasharray="47 52"
-      stroke-dashoffset="25"
-      transform="rotate(324, 400, 400)"
-      opacity="0.38"
-    ></circle>
-    <circle
-      r="304.5"
-      cx="400"
-      cy="400"
-      stroke-width="9"
-      stroke-dasharray="19 43"
-      stroke-dashoffset="25"
-      transform="rotate(233, 400, 400)"
-      opacity="0.41"
-    ></circle>
-    <circle
-      r="290"
-      cx="400"
-      cy="400"
-      stroke-width="9"
-      stroke-dasharray="38 14"
-      stroke-dashoffset="25"
-      transform="rotate(263, 400, 400)"
-      opacity="0.44"
-    ></circle>
-    <circle
-      r="275.5"
-      cx="400"
-      cy="400"
-      stroke-width="8"
-      stroke-dasharray="29 14"
-      stroke-dashoffset="25"
-      transform="rotate(20, 400, 400)"
-      opacity="0.47"
-    ></circle>
-    <circle
-      r="261"
-      cx="400"
-      cy="400"
-      stroke-width="8"
-      stroke-dasharray="32 37"
-      stroke-dashoffset="25"
-      transform="rotate(152, 400, 400)"
-      opacity="0.50"
-    ></circle>
-    <circle
-      r="246.5"
-      cx="400"
-      cy="400"
-      stroke-width="8"
-      stroke-dasharray="25 28"
-      stroke-dashoffset="25"
-      transform="rotate(257, 400, 400)"
-      opacity="0.53"
-    ></circle>
-    <circle
-      r="232"
-      cx="400"
-      cy="400"
-      stroke-width="8"
-      stroke-dasharray="45 20"
-      stroke-dashoffset="25"
-      transform="rotate(30, 400, 400)"
-      opacity="0.55"
-    ></circle>
-    <circle
-      r="217.5"
-      cx="400"
-      cy="400"
-      stroke-width="8"
-      stroke-dasharray="50 54"
-      stroke-dashoffset="25"
-      transform="rotate(289, 400, 400)"
-      opacity="0.58"
-    ></circle>
-    <circle
-      r="203"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="34 43"
-      stroke-dashoffset="25"
-      transform="rotate(73, 400, 400)"
-      opacity="0.61"
-    ></circle>
-    <circle
-      r="188.5"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="20 40"
-      stroke-dashoffset="25"
-      transform="rotate(246, 400, 400)"
-      opacity="0.64"
-    ></circle>
-    <circle
-      r="174"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="51 33"
-      stroke-dashoffset="25"
-      transform="rotate(315, 400, 400)"
-      opacity="0.67"
-    ></circle>
-    <circle
-      r="159.5"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="36 27"
-      stroke-dashoffset="25"
-      transform="rotate(310, 400, 400)"
-      opacity="0.70"
-    ></circle>
-    <circle
-      r="145"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="48 22"
-      stroke-dashoffset="25"
-      transform="rotate(90, 400, 400)"
-      opacity="0.73"
-    ></circle>
-    <circle
-      r="130.5"
-      cx="400"
-      cy="400"
-      stroke-width="7"
-      stroke-dasharray="41 26"
-      stroke-dashoffset="25"
-      transform="rotate(209, 400, 400)"
-      opacity="0.76"
-    ></circle>
-    <circle
-      r="116"
-      cx="400"
-      cy="400"
-      stroke-width="6"
-      stroke-dasharray="24 41"
-      stroke-dashoffset="25"
-      transform="rotate(224, 400, 400)"
-      opacity="0.79"
-    ></circle>
-    <circle
-      r="101.5"
-      cx="400"
-      cy="400"
-      stroke-width="6"
-      stroke-dasharray="31 25"
-      stroke-dashoffset="25"
-      transform="rotate(299, 400, 400)"
-      opacity="0.82"
-    ></circle>
-    <circle
-      r="87"
-      cx="400"
-      cy="400"
-      stroke-width="6"
-      stroke-dasharray="19 11"
-      stroke-dashoffset="25"
-      transform="rotate(27, 400, 400)"
-      opacity="0.85"
-    ></circle>
-    <circle
-      r="72.5"
-      cx="400"
-      cy="400"
-      stroke-width="6"
-      stroke-dasharray="31 50"
-      stroke-dashoffset="25"
-      transform="rotate(234, 400, 400)"
-      opacity="0.88"
-    ></circle>
-    <circle
-      r="58"
-      cx="400"
-      cy="400"
-      stroke-width="6"
-      stroke-dasharray="37 53"
-      stroke-dashoffset="25"
-      transform="rotate(243, 400, 400)"
-      opacity="0.91"
-    ></circle>
-    <circle
-      r="43.5"
-      cx="400"
-      cy="400"
-      stroke-width="5"
-      stroke-dasharray="43 23"
-      stroke-dashoffset="25"
-      transform="rotate(258, 400, 400)"
-      opacity="0.94"
-    ></circle>
-    <circle
-      r="29"
-      cx="400"
-      cy="400"
-      stroke-width="5"
-      stroke-dasharray="38 54"
-      stroke-dashoffset="25"
-      transform="rotate(238, 400, 400)"
-      opacity="0.97"
-    ></circle>
-    <circle
-      r="14.5"
-      cx="400"
-      cy="400"
-      stroke-width="5"
-      stroke-dasharray="41 41"
-      stroke-dashoffset="25"
-      transform="rotate(67, 400, 400)"
-      opacity="1.00"
-    ></circle>
+  <g stroke-width="2" stroke="currentColor" fill="none">
+    <circle r="390" cx="50%" cy="0"></circle>
+    <circle r="377" cx="50%" cy="0"></circle>
+    <circle r="364" cx="50%" cy="0"></circle>
+    <circle r="351" cx="50%" cy="0"></circle>
+    <circle r="338" cx="50%" cy="0"></circle>
+    <circle r="325" cx="50%" cy="0"></circle>
+    <circle r="312" cx="50%" cy="0"></circle>
+    <circle r="299" cx="50%" cy="0"></circle>
+    <circle r="286" cx="50%" cy="0"></circle>
+    <circle r="273" cx="50%" cy="0"></circle>
+    <circle r="260" cx="50%" cy="0"></circle>
+    <circle r="247" cx="50%" cy="0"></circle>
+    <circle r="234" cx="50%" cy="0"></circle>
+    <circle r="221" cx="50%" cy="0"></circle>
+    <circle r="208" cx="50%" cy="0"></circle>
+    <circle r="195" cx="50%" cy="0"></circle>
+    <circle r="182" cx="50%" cy="0"></circle>
+    <circle r="169" cx="50%" cy="0"></circle>
+    <circle r="156" cx="50%" cy="0"></circle>
+    <circle r="143" cx="50%" cy="0"></circle>
+    <circle r="130" cx="50%" cy="0"></circle>
+    <circle r="117" cx="50%" cy="0"></circle>
+    <circle r="104" cx="50%" cy="0"></circle>
+    <circle r="91" cx="50%" cy="0"></circle>
+    <circle r="78" cx="50%" cy="0"></circle>
+    <circle r="65" cx="50%" cy="0"></circle>
+    <circle r="52" cx="50%" cy="0"></circle>
+    <circle r="39" cx="50%" cy="0"></circle>
+    <circle r="26" cx="50%" cy="0"></circle>
+    <circle r="13" cx="50%" cy="0"></circle>
+  </g>
+  <g stroke-width="2" stroke="currentColor" fill="none">
+    <circle r="390" cx="50%" cy="100%"></circle>
+    <circle r="377" cx="50%" cy="100%"></circle>
+    <circle r="364" cx="50%" cy="100%"></circle>
+    <circle r="351" cx="50%" cy="100%"></circle>
+    <circle r="338" cx="50%" cy="100%"></circle>
+    <circle r="325" cx="50%" cy="100%"></circle>
+    <circle r="312" cx="50%" cy="100%"></circle>
+    <circle r="299" cx="50%" cy="100%"></circle>
+    <circle r="286" cx="50%" cy="100%"></circle>
+    <circle r="273" cx="50%" cy="100%"></circle>
+    <circle r="260" cx="50%" cy="100%"></circle>
+    <circle r="247" cx="50%" cy="100%"></circle>
+    <circle r="234" cx="50%" cy="100%"></circle>
+    <circle r="221" cx="50%" cy="100%"></circle>
+    <circle r="208" cx="50%" cy="100%"></circle>
+    <circle r="195" cx="50%" cy="100%"></circle>
+    <circle r="182" cx="50%" cy="100%"></circle>
+    <circle r="169" cx="50%" cy="100%"></circle>
+    <circle r="156" cx="50%" cy="100%"></circle>
+    <circle r="143" cx="50%" cy="100%"></circle>
+    <circle r="130" cx="50%" cy="100%"></circle>
+    <circle r="117" cx="50%" cy="100%"></circle>
+    <circle r="104" cx="50%" cy="100%"></circle>
+    <circle r="91" cx="50%" cy="100%"></circle>
+    <circle r="78" cx="50%" cy="100%"></circle>
+    <circle r="65" cx="50%" cy="100%"></circle>
+    <circle r="52" cx="50%" cy="100%"></circle>
+    <circle r="39" cx="50%" cy="100%"></circle>
+    <circle r="26" cx="50%" cy="100%"></circle>
+    <circle r="13" cx="50%" cy="100%"></circle>
+  </g>
+  <g stroke-width="2" stroke="currentColor" fill="none">
+    <circle r="390" cx="0" cy="50%"></circle>
+    <circle r="377" cx="0" cy="50%"></circle>
+    <circle r="364" cx="0" cy="50%"></circle>
+    <circle r="351" cx="0" cy="50%"></circle>
+    <circle r="338" cx="0" cy="50%"></circle>
+    <circle r="325" cx="0" cy="50%"></circle>
+    <circle r="312" cx="0" cy="50%"></circle>
+    <circle r="299" cx="0" cy="50%"></circle>
+    <circle r="286" cx="0" cy="50%"></circle>
+    <circle r="273" cx="0" cy="50%"></circle>
+    <circle r="260" cx="0" cy="50%"></circle>
+    <circle r="247" cx="0" cy="50%"></circle>
+    <circle r="234" cx="0" cy="50%"></circle>
+    <circle r="221" cx="0" cy="50%"></circle>
+    <circle r="208" cx="0" cy="50%"></circle>
+    <circle r="195" cx="0" cy="50%"></circle>
+    <circle r="182" cx="0" cy="50%"></circle>
+    <circle r="169" cx="0" cy="50%"></circle>
+    <circle r="156" cx="0" cy="50%"></circle>
+    <circle r="143" cx="0" cy="50%"></circle>
+    <circle r="130" cx="0" cy="50%"></circle>
+    <circle r="117" cx="0" cy="50%"></circle>
+    <circle r="104" cx="0" cy="50%"></circle>
+    <circle r="91" cx="0" cy="50%"></circle>
+    <circle r="78" cx="0" cy="50%"></circle>
+    <circle r="65" cx="0" cy="50%"></circle>
+    <circle r="52" cx="0" cy="50%"></circle>
+    <circle r="39" cx="0" cy="50%"></circle>
+    <circle r="26" cx="0" cy="50%"></circle>
+    <circle r="13" cx="0" cy="50%"></circle>
+  </g>
+  <g stroke-width="2" stroke="currentColor" fill="none">
+    <circle r="390" cx="100%" cy="50%"></circle>
+    <circle r="377" cx="100%" cy="50%"></circle>
+    <circle r="364" cx="100%" cy="50%"></circle>
+    <circle r="351" cx="100%" cy="50%"></circle>
+    <circle r="338" cx="100%" cy="50%"></circle>
+    <circle r="325" cx="100%" cy="50%"></circle>
+    <circle r="312" cx="100%" cy="50%"></circle>
+    <circle r="299" cx="100%" cy="50%"></circle>
+    <circle r="286" cx="100%" cy="50%"></circle>
+    <circle r="273" cx="100%" cy="50%"></circle>
+    <circle r="260" cx="100%" cy="50%"></circle>
+    <circle r="247" cx="100%" cy="50%"></circle>
+    <circle r="234" cx="100%" cy="50%"></circle>
+    <circle r="221" cx="100%" cy="50%"></circle>
+    <circle r="208" cx="100%" cy="50%"></circle>
+    <circle r="195" cx="100%" cy="50%"></circle>
+    <circle r="182" cx="100%" cy="50%"></circle>
+    <circle r="169" cx="100%" cy="50%"></circle>
+    <circle r="156" cx="100%" cy="50%"></circle>
+    <circle r="143" cx="100%" cy="50%"></circle>
+    <circle r="130" cx="100%" cy="50%"></circle>
+    <circle r="117" cx="100%" cy="50%"></circle>
+    <circle r="104" cx="100%" cy="50%"></circle>
+    <circle r="91" cx="100%" cy="50%"></circle>
+    <circle r="78" cx="100%" cy="50%"></circle>
+    <circle r="65" cx="100%" cy="50%"></circle>
+    <circle r="52" cx="100%" cy="50%"></circle>
+    <circle r="39" cx="100%" cy="50%"></circle>
+    <circle r="26" cx="100%" cy="50%"></circle>
+    <circle r="13" cx="100%" cy="50%"></circle>
   </g>
 </svg>

@@ -15,7 +15,6 @@ import Input from "./ui/Input";
 function Chats() {
   const { user } = useAuth();
   const [chats, setChats] = useState([]);
-  const [filteredChats, setFilteredChats] = useState([]);
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -57,7 +56,6 @@ function Chats() {
         );
 
         setChats(updatedChats.filter(Boolean));
-        setFilteredChats(updatedChats.filter(Boolean));
       } catch (error) {
         console.error("Error fetching chats:", error);
       }
@@ -69,19 +67,15 @@ function Chats() {
   const handleChange = (e) => {
     const query = e.target.value.toLowerCase();
     setText(query);
-
-    if (query === "") {
-      setFilteredChats(chats);
-    } else {
-      const filtered = chats.filter((chat) =>
-        chat.otherParticipant.fullName.toLowerCase().includes(query),
-      );
-      setFilteredChats(filtered);
-    }
   };
+
+  const filteredChats = chats.filter((chat) =>
+    chat.otherParticipant.fullName.toLowerCase().includes(text),
+  );
+
   return (
     <>
-      <div className="px-2 pb-2 lg:px-4 lg:pb-4">
+      <div className="px-2 py-2 lg:px-4 lg:py-4">
         <div className="flex justify-between">
           <Title title="Chats" />
           <Button variant="icon" title="New chat" className="h-8 w-8 p-0">
@@ -94,9 +88,11 @@ function Chats() {
         <Input
           id="search"
           placeholder="Search"
-          icon={<HiMagnifyingGlassCircle />}
+          icon={<HiMagnifyingGlassCircle className="h-7 w-7" />}
           value={text}
           onChange={handleChange}
+          className="border-border border-2"
+          iconClassName="ps-1.5"
         />
       </div>
 
@@ -106,9 +102,9 @@ function Chats() {
             <SingleChat key={chat?.id} chat={chat} />
           ))
         ) : (
-          <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-4">
-            <NoMail className="w-72" />
-            <h3 className="text-foreground font-primary px-2 text-xl font-bold lg:px-4">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-10">
+            <NoMail className="h-72 w-72" />
+            <h3 className="text-foreground font-primary px-2 text-2xl font-bold lg:px-4">
               Welcome to the Talko 🎉🎉🎉
             </h3>
             <p className="font-primary text-foreground">

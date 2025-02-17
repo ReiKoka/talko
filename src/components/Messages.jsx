@@ -25,7 +25,7 @@ function Messages() {
   return (
     <section className="bg-secondary dark:bg-secondary hidden overflow-hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
       <div className="relative h-full w-full overflow-hidden">
-        <Topography className="text-muted/40 absolute top-0 left-0 w-full overflow-clip " />
+        <Topography className="text-muted/40 absolute top-0 left-0 h-full w-full overflow-clip" />
 
         {selectedChat && (
           <div className="flex h-full flex-col overflow-hidden">

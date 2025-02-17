@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
+
 function Input({
   id,
   type = "text",
@@ -6,7 +9,18 @@ function Input({
   icon,
   value,
   onChange,
+  className,
+  iconClassName
 }) {
+  const baseStyles =
+    "border-muted block w-full min-w-full rounded-lg border p-2.5 text-foreground text-sm focus-visible:border-primary focus-visible:ring-primary focus-visible:ring-1 focus-visible:outline-0";
+
+  const baseIconStyles =
+    "text-muted-foreground group-focus-within:text-primary pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5";
+
+  const inputStyles = twMerge(clsx(baseStyles, icon && "ps-10", className));
+  const iconStyles = twMerge(clsx(baseIconStyles, iconClassName));
+
   return (
     <div className="w-full">
       <label
@@ -16,13 +30,11 @@ function Input({
         {label}
       </label>
       <div className="group relative">
-        <div className="text-muted-foreground group-focus-within:text-primary pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
-          {icon}
-        </div>
+        {icon && <div className={clsx(iconStyles)}>{icon}</div>}
         <input
           type={type}
           id={id}
-          className={`border-muted block w-full min-w-full rounded-lg border p-2.5 ${icon ? "ps-10" : ""} text-foreground focus-visible:border-primary focus-visible:ring-primary text-sm focus-visible:ring-1 focus-visible:outline-0`}
+          className={inputStyles}
           placeholder={placeholder}
           autoComplete="on"
           value={value}
