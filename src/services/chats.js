@@ -15,3 +15,12 @@ export const getChatsForUser = async (userId) => {
   }
 };
 
+export const createNewChat = async (obj) => {
+  try {
+    const response = await axios.post(`${URL}/chats`, obj);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

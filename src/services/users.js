@@ -38,3 +38,14 @@ export const getUser = async (id) => {
     throw error;
   }
 };
+
+export const getAllUsers = async (id) => {
+  try {
+    const res = await axios.get(`${URL}/users`);
+    const data = res.data.filter((user) => user.id !== id);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
