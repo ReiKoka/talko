@@ -1,4 +1,4 @@
-import { HiOutlinePlusCircle } from "react-icons/hi2";
+import { HiMagnifyingGlassCircle, HiOutlinePlusCircle } from "react-icons/hi2";
 import Button from "./ui/Button";
 import Title from "./ui/Title";
 
@@ -10,10 +10,13 @@ import { getUser } from "../services/users";
 
 import NoMail from "/src/assets/nomail.svg?react";
 import { useAuth } from "../hooks/useAuth";
+import Input from "./ui/Input";
 
 function Chats() {
   const { user } = useAuth();
   const [chats, setChats] = useState([]);
+  const [filteredChats, setFilteredChats] = useState([]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     if (!user) return;
@@ -33,7 +36,6 @@ function Chats() {
               (id) => id !== user.id,
             );
 
-            // Check cache before making a request
             if (!userCache.has(otherParticipant)) {
               try {
                 const userData = await getUser(otherParticipant);
@@ -55,6 +57,7 @@ function Chats() {
         );
 
         setChats(updatedChats.filter(Boolean));
+        setFilteredChats(updatedChats.filter(Boolean));
       } catch (error) {
         console.error("Error fetching chats:", error);
       }
@@ -63,21 +66,45 @@ function Chats() {
     fetchChats();
   }, [user]);
 
+  const handleChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    setText(query);
+
+    if (query === "") {
+      setFilteredChats(chats);
+    } else {
+      const filtered = chats.filter((chat) =>
+        chat.otherParticipant.fullName.toLowerCase().includes(query),
+      );
+      setFilteredChats(filtered);
+    }
+  };
   return (
     <>
-      <div className="flex items-end justify-between px-2 pb-2 lg:px-4 lg:pb-4">
-        <Title title="Chats" />
-        <Button variant="icon" title="New chat" className="h-8 w-8 p-0">
-          <HiOutlinePlusCircle
-            className="text-foreground group-hover:text-primary h-full w-full transition-all duration-300 ease-out group-hover:scale-110 group-active:scale-75"
-            strokeWidth={1}
-          />
-        </Button>
+      <div className="px-2 pb-2 lg:px-4 lg:pb-4">
+        <div className="flex justify-between">
+          <Title title="Chats" />
+          <Button variant="icon" title="New chat" className="h-8 w-8 p-0">
+            <HiOutlinePlusCircle
+              className="text-foreground group-hover:text-primary h-full w-full transition-all duration-300 ease-out group-hover:scale-110 group-active:scale-75"
+              strokeWidth={1}
+            />
+          </Button>
+        </div>
+        <Input
+          id="search"
+          placeholder="Search"
+          icon={<HiMagnifyingGlassCircle />}
+          value={text}
+          onChange={handleChange}
+        />
       </div>
 
       <div className="flex flex-col overflow-y-auto">
-        {chats.length ? (
-          chats?.map((chat) => <SingleChat key={chat?.id} chat={chat} />)
+        {filteredChats.length ? (
+          filteredChats?.map((chat) => (
+            <SingleChat key={chat?.id} chat={chat} />
+          ))
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-4">
             <NoMail className="w-72" />
