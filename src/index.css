@@ -102,6 +102,11 @@
   }
 }
 
+/* ::-webkit-scrollbar {
+  isolation: isolate;
+  z-index: 30;
+} */
+
 /* 
 "users": [
   {
