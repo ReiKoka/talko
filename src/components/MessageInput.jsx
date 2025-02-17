@@ -3,20 +3,21 @@ import Textarea from "./ui/Textarea";
 import { useAuth } from "../hooks/useAuth";
 import { useChats } from "../hooks/useChats";
 import { createMessage } from "../services/messages";
-import { showToast } from "../utils/toast";
+import { nanoid } from "nanoid";
 
-function MessageInput({ messages, setMessages }) {
+function MessageInput({ setMessages }) {
   const [text, setText] = useState("");
   const { user } = useAuth();
   const { selectedChat } = useChats();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!text) return;
+    if (!text.trim()) return;
 
     const senderId = user?.id;
     const chatId = selectedChat.id;
     const timestamp = new Date();
+    const id = nanoid();
 
     const message = {
       chatId,
@@ -24,12 +25,19 @@ function MessageInput({ messages, setMessages }) {
       content: text,
       timestamp,
       status: "delivered",
+      id,
     };
 
     await createMessage(message);
-    showToast("success", `Message sent!`);
     setText("");
-    setMessages([...messages, message]);
+    setMessages((prev) => [...prev, message]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
   };
 
   return (
@@ -41,6 +49,7 @@ function MessageInput({ messages, setMessages }) {
         id="message"
         value={text}
         onChange={(e) => setText(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
     </form>
   );

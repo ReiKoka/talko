@@ -18,6 +18,7 @@ export const formatMessageTime = (date) => {
 };
 
 export const isPicture = (filename) => {
+  if (!filename || typeof filename !== "string") return false;
   const validExtensions = [
     ".jpg",
     ".jpeg",

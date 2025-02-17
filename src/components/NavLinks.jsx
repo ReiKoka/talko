@@ -10,13 +10,16 @@ import Button from "./ui/Button";
 import NavItem from "./NavItem";
 import { showToast } from "./../utils/toast";
 import { useAuth } from "../hooks/useAuth";
+import { useChats } from "../hooks/useChats";
 
 function NavLinks() {
   const { user, setToken } = useAuth();
+  const { setSelectedChat } = useChats();
 
   const handleLogout = () => {
-    showToast("info", `Goodbye ${user?.fullName.split(" ").at(0)}`);
+    setSelectedChat("");
     setToken("");
+    showToast("info", `Goodbye ${user?.fullName.split(" ").at(0)}`);
   };
 
   return (

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { IoSend } from "react-icons/io5";
 import Button from "./Button";
 
-function Textarea({ id, value, onChange }) {
+function Textarea({ id, value, onChange, onKeyDown }) {
   const textareaRef = useRef(null);
 
   const adjustHeight = () => {
@@ -21,10 +21,11 @@ function Textarea({ id, value, onChange }) {
         ref={textareaRef}
         rows={1}
         onInput={adjustHeight}
-        className="border-secondary block h-auto w-full text-foreground dark:border-muted-foreground resize-none overflow-hidden rounded-md border px-3 pt-2 outline-0"
+        className="border-secondary text-foreground dark:border-muted-foreground block h-auto w-full resize-none overflow-hidden rounded-md border px-3 pt-2 outline-0"
         placeholder="Type message..."
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
       <Button title="Send message" type="submit" variant="icon">
         <IoSend className="fill-primary h-6 w-6" />

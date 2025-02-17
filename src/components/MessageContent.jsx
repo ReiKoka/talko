@@ -1,7 +1,15 @@
+import { useEffect, useRef } from "react";
 import { formatMessageTime } from "../utils/helpers";
 import SingleMessage from "./SingleMessage";
 
 function MessageContent({ messages }) {
+  const lastMessageRef = useRef(null);
+
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
   return (
     <div className="flex flex-grow flex-col gap-2 overflow-y-auto px-2 py-2 lg:py-4">
       {messages.map((message, index) => {
@@ -14,9 +22,13 @@ function MessageContent({ messages }) {
             formattedDate;
 
         return (
-          <div key={message.id} className="z-20 flex flex-col gap-2">
+          <div
+            key={message.id}
+            className="z-20 flex flex-col gap-2"
+            ref={index === messages.length - 1 ? lastMessageRef : null}
+          >
             {shouldShowDate && (
-              <div className="font-primary text-background dark:text-foreground bg-border mx-auto w-fit min-w-32 rounded-lg px-4 py-2 text-center text-base">
+              <div className="font-primary text-background dark:text-foreground bg-border mx-auto mt-auto w-fit min-w-32 rounded-lg px-4 py-2 text-center text-base">
                 {formattedDate}
               </div>
             )}
