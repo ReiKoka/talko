@@ -55,8 +55,8 @@
       ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "adfasdf",
-        "timestamp": "2025-02-20T10:07:39.387Z"
+        "content": "Thats fine dont worry about it",
+        "timestamp": "2025-02-20T10:14:09.738Z"
       },
       "unreadCount": 1
     },
@@ -450,6 +450,22 @@
       "timestamp": "2025-02-20T10:07:41.866Z",
       "status": "delivered",
       "id": "l37WDPyTju_jXFHmNAV9k"
+    },
+    {
+      "chatId": 2,
+      "senderId": "ahUdsbm",
+      "content": "Hi mate, sorry was unable to sdfajsndfja",
+      "timestamp": "2025-02-20T10:13:43.754Z",
+      "status": "delivered",
+      "id": "h8JvHNpg01rnec09i0FBZ"
+    },
+    {
+      "chatId": 2,
+      "senderId": "rFHxtYL",
+      "content": "Thats fine dont worry about it",
+      "timestamp": "2025-02-20T10:14:09.738Z",
+      "status": "delivered",
+      "id": "GGblD8wMJ3FnDt7oWyRmX"
     }
   ]
 }

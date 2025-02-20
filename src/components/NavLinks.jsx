@@ -10,11 +10,11 @@ import Button from "./ui/Button";
 import NavItem from "./NavItem";
 import { showToast } from "./../utils/toast";
 import { useAuth } from "../hooks/useAuth";
-import { useChats } from "../hooks/useChats";
+import { useSelectedChat } from "../hooks/useSelectedChat";
 
 function NavLinks() {
   const { user, setToken } = useAuth();
-  const { setSelectedChat } = useChats();
+  const { setSelectedChat } = useSelectedChat();
 
   const handleLogout = () => {
     setSelectedChat("");
