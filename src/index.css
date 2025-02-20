@@ -102,6 +102,9 @@
   }
 }
 
+dialog:-internal-dialog-in-top-layer::backdrop {
+  backdrop-filter: blur(10px);
+}
 /* ::-webkit-scrollbar {
   isolation: isolate;
   z-index: 30;

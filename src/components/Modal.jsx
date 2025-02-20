@@ -24,7 +24,7 @@ function Modal({ isOpen, onClose, title, children }) {
       ref={dialogRef}
       onClose={onClose}
       onClick={handleOutsideClick}
-      className="mx-auto my-auto min-w-96 max-w-[600px] rounded-lg p-7"
+      className="mx-auto my-auto min-w-96 max-w-[600px] rounded-lg p-7 bg-background text-foreground shadow-primary shadow-light dark:shadow-dark"
     >
       <h1 className="font-primary text-center text-2xl font-bold mb-6">{title}</h1>
       {children}

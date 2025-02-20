@@ -42,8 +42,8 @@
       ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "fasdjnfjnajf",
-        "timestamp": "2025-02-20T11:08:49.733Z"
+        "content": "Hiii",
+        "timestamp": "2025-02-20T16:44:11.326Z"
       },
       "unreadCount": 1
     },
@@ -396,12 +396,12 @@
       "id": "JF1V32mAtkJGtw3fP4S_F"
     },
     {
-      "chatId": "nnqwBNLc99620sx-4lQKe",
+      "chatId": 1,
       "senderId": "rFHxtYL",
       "content": "Hiii",
-      "timestamp": "2025-02-20T16:35:51.289Z",
+      "timestamp": "2025-02-20T16:44:11.326Z",
       "status": "delivered",
-      "id": "gl5s3TPBJ6rMmeS_XCEa_"
+      "id": "pw_NsVYxbg49FeJzxMrJ6"
     }
   ]
 }
