@@ -1,14 +1,15 @@
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
+import { forwardRef } from "react";
 
-function Button({
+const Button = forwardRef(function Button({
   title,
   type = "button",
   variant,
   onClick,
   className,
   children,
-}) {
+}, ref) {
   const baseStyles =
     "text-sm font-medium focus-visible:ring-primary dark:focus-visible:ring-offset-muted focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none flex items-center gap-2 justify-center cursor-pointer transition-all duration-300 ease-out w-full sm:w-fit";
 
@@ -26,6 +27,7 @@ function Button({
 
   return (
     <button
+      ref={ref}
       title={title}
       type={type}
       className={buttonStyles}
@@ -34,6 +36,6 @@ function Button({
       {children}
     </button>
   );
-}
+});
 
 export default Button;
