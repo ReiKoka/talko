@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useChats } from "../hooks/useChats";
 import Topography from "/src/assets/topography.svg?react";
 import { getSingleChatMessages } from "../services/messages";
 import MessageHeader from "./MessageHeader";
@@ -23,10 +22,14 @@ function Messages() {
   }, [selectedChat]);
 
   return (
-    <section className="bg-secondary dark:bg-secondary hidden overflow-hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
-      <div className="relative h-full w-full overflow-hidden">
-        <Topography className="text-muted/40 absolute top-0 left-0 h-full w-full overflow-clip" />
+    <section className="bg-secondary dark:bg-secondary relative hidden overflow-hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
+      {/* Background Layer */}
+      <div className="absolute top-0 left-0 z-0 h-full w-full">
+        <Topography className="text-muted/30 h-full w-full" />
+      </div>
 
+      {/* Content Layer */}
+      <div className="relative z-10 flex h-full flex-col">
         {selectedChat && (
           <div className="flex h-full flex-col overflow-hidden">
             <MessageHeader selectedChat={selectedChat} />

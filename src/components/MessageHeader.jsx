@@ -3,7 +3,7 @@ import { isPicture } from "../utils/helpers";
 
 function MessageHeader({ selectedChat }) {
   return (
-    <div className="bg-muted isolate z-20 flex w-full items-center gap-2 p-2 lg:gap-4 lg:p-4">
+    <div className="bg-muted flex w-full items-center gap-2 p-2 lg:gap-4 lg:p-4">
       {isPicture(selectedChat.otherParticipant.profilePicture) ? (
         <img
           src={selectedChat.otherParticipant.profilePicture}

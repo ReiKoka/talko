@@ -10,8 +10,10 @@ function MessageContent({ messages }) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+
+
   return (
-    <div className="flex flex-grow flex-col gap-2 overflow-y-auto px-2 py-2 lg:py-4">
+    <div className="flex flex-grow flex-col gap-2 overflow-y-auto overflow-x-clip px-2 py-2 lg:py-4">
       {messages.map((message, index) => {
         const messageDate = new Date(message.timestamp);
         const formattedDate = formatMessageTime(messageDate);
@@ -24,7 +26,7 @@ function MessageContent({ messages }) {
         return (
           <div
             key={message.id}
-            className="z-20 flex flex-col gap-2"
+            className="flex flex-col gap-2"
             ref={index === messages.length - 1 ? lastMessageRef : null}
           >
             {shouldShowDate && (
