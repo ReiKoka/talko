@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useChats } from "../hooks/useChats";
 import { createMessage } from "../services/messages";
 import { nanoid } from "nanoid";
+import { createNewChat, findExistingChat, updateChat } from "../services/chats";
 
 function MessageInput({ setMessages }) {
   const [text, setText] = useState("");
@@ -14,23 +15,40 @@ function MessageInput({ setMessages }) {
     e.preventDefault();
     if (!text.trim()) return;
 
+    const existingChat = await findExistingChat(
+      user.id,
+      selectedChat.otherParticipant.id,
+    );
+
     const senderId = user?.id;
     const chatId = selectedChat.id;
     const timestamp = new Date();
     const id = nanoid();
 
-    const message = {
-      chatId,
-      senderId,
-      content: text,
-      timestamp,
-      status: "delivered",
-      id,
+    // prettier-ignore
+    const message = {chatId, senderId, content: text, timestamp, status: "delivered", id};
+    const lastMessage = {
+      senderId: message.senderId,
+      content: message.content,
+      timestamp: message.timestamp,
     };
 
-    await createMessage(message);
-    setText("");
+    if (existingChat) {
+      createMessage(message);
+      updateChat(lastMessage, selectedChat.id);
+      setMessages((prev) => [...prev, message]);
+      setText("");
+
+      return;
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    const { otherParticipant, ...chat } = selectedChat;
+    createNewChat({ ...chat, lastMessage, unreadCount: 1 });
+    createMessage(message);
     setMessages((prev) => [...prev, message]);
+
+    setText("");
   };
 
   const handleKeyDown = (e) => {

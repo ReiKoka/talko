@@ -15,7 +15,6 @@ function Messages() {
       if (!selectedChat) return;
       const data = await getSingleChatMessages(selectedChat.id);
 
-      console.log(data);
       setMessages(data);
     };
 
