@@ -7,7 +7,7 @@ import SearchInput from "./SearchInput";
 
 import SingleContact from "./SingleContact";
 
-function AddNewChat({ onClose, contacts }) {
+function AddNewChat({ onClose, contacts, }) {
   const [text, setText] = useState("");
 
   const handleSearch = (e) => {
@@ -27,7 +27,7 @@ function AddNewChat({ onClose, contacts }) {
       </div>
       <div className="flex flex-col overflow-y-auto">
         {contacts?.map((contact) => (
-          <SingleContact contact={contact} key={contact.id} />
+          <SingleContact contact={contact} key={contact.id}  />
         ))}
       </div>
     </div>

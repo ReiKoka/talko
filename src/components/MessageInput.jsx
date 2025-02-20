@@ -1,15 +1,17 @@
 import { useState } from "react";
 import Textarea from "./ui/Textarea";
 import { useAuth } from "../hooks/useAuth";
-import { useChats } from "../hooks/useChats";
+import { useSelectedChat } from "../hooks/useSelectedChat";
 import { createMessage } from "../services/messages";
 import { nanoid } from "nanoid";
 import { createNewChat, findExistingChat, updateChat } from "../services/chats";
+import { useChats } from "../hooks/useChats";
 
 function MessageInput({ setMessages }) {
   const [text, setText] = useState("");
   const { user } = useAuth();
-  const { selectedChat } = useChats();
+  const { selectedChat, setSelectedChat } = useSelectedChat();
+  const { setChats } = useChats();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,9 +38,15 @@ function MessageInput({ setMessages }) {
     if (existingChat) {
       createMessage(message);
       updateChat(lastMessage, selectedChat.id);
+      setSelectedChat((prevChat) => ({ ...prevChat, lastMessage }));
+      setChats;
       setMessages((prev) => [...prev, message]);
+      setChats((prevChats) =>
+        prevChats.map((chat) =>
+          chat.id === selectedChat.id ? { ...chat, lastMessage } : chat,
+        ),
+      );
       setText("");
-
       return;
     }
 
@@ -47,7 +55,10 @@ function MessageInput({ setMessages }) {
     createNewChat({ ...chat, lastMessage, unreadCount: 1 });
     createMessage(message);
     setMessages((prev) => [...prev, message]);
-
+    setChats((prevChats) => [
+      ...prevChats,
+      { ...chat, lastMessage, unreadCount: 1 },
+    ]);
     setText("");
   };
 

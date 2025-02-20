@@ -3,11 +3,11 @@ import { formatMessageTime, isPicture } from "../utils/helpers";
 
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { useAuth } from "../hooks/useAuth";
-import { useChats } from "../hooks/useChats";
+import { useSelectedChat } from "../hooks/useSelectedChat";
 
 function SingleChat({ chat }) {
   const { user } = useAuth();
-  const { setSelectedChat } = useChats();
+  const { setSelectedChat } = useSelectedChat();
   const isUserLastSender = user.id === chat?.lastMessage.senderId;
 
   return (

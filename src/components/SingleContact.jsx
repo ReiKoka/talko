@@ -1,5 +1,5 @@
 import { HiUser } from "react-icons/hi2";
-import { useChats } from "../hooks/useChats";
+import { useSelectedChat } from "../hooks/useSelectedChat";
 import { isPicture } from "../utils/helpers";
 import { nanoid } from "nanoid";
 import { useAuth } from "../hooks/useAuth";
@@ -7,7 +7,7 @@ import { findExistingChat } from "../services/chats";
 
 function SingleContact({ contact }) {
   const { user } = useAuth();
-  const { setSelectedChat } = useChats();
+  const { setSelectedChat } = useSelectedChat();
 
   const handleContactClick = async () => {
     const existingChat = await findExistingChat(user.id, contact.id);

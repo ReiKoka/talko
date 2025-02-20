@@ -5,9 +5,10 @@ import { getSingleChatMessages } from "../services/messages";
 import MessageHeader from "./MessageHeader";
 import MessageContent from "./MessageContent";
 import MessageInput from "./MessageInput";
+import { useSelectedChat } from "../hooks/useSelectedChat";
 
 function Messages() {
-  const { selectedChat } = useChats();
+  const { selectedChat } = useSelectedChat();
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {

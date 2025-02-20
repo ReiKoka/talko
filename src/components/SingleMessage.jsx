@@ -7,7 +7,7 @@ function SingleMessage({ message }) {
 
   return (
     <div
-      className={`flex w-fit max-w-[600px] break-all break-words ${isLoggedUser ? "dark:bg-primary mr-4 ml-auto bg-purple-300" : "bg-muted dark:bg-muted mr-auto ml-4"} text-foreground font-primary isolate z-20 rounded-md px-4 py-2 `}
+      className={`flex w-fit max-w-[600px] break-words break-all ${isLoggedUser ? "dark:bg-primary mr-4 ml-auto bg-purple-300" : "bg-muted dark:bg-muted mr-auto ml-4"} text-foreground font-primary isolate z-20 rounded-md px-4 py-2`}
     >
       {message.content}
     </div>

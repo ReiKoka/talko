@@ -14,10 +14,11 @@ import NoMail from "/src/assets/nomail.svg?react";
 import Button from "./ui/Button";
 import Title from "./ui/Title";
 import { showToast } from "./../utils/toast";
+import { useChats } from "../hooks/useChats";
 
 function Chats() {
   const { user } = useAuth();
-  const [chats, setChats] = useState([]);
+  const { chats, setChats } = useChats();
   const [text, setText] = useState("");
   const [showAddChat, setShowAddChat] = useState(false);
   const [contacts, setContacts] = useState();
@@ -28,41 +29,30 @@ function Chats() {
     const fetchChats = async () => {
       try {
         const fetchedChats = await getChatsForUser(user.id);
-        const userCache = new Map();
-        const chatIds = new Set();
 
         const updatedChats = await Promise.all(
           fetchedChats.map(async (chat) => {
-            if (chatIds.has(chat.id)) return null;
-
-            chatIds.add(chat.id);
             const otherParticipant = chat.participants.find(
               (id) => id !== user.id,
             );
 
-            if (!userCache.has(otherParticipant)) {
-              try {
-                const userData = await getUser(otherParticipant);
-                userCache.set(otherParticipant, userData);
-              } catch (error) {
-                console.error(
-                  `Failed to fetch user ${otherParticipant}:`,
-                  error,
-                );
-                userCache.set(otherParticipant, null);
-              }
+            try {
+              const userData = await getUser(otherParticipant);
+              return {
+                ...chat,
+                otherParticipant: userData,
+              };
+            } catch (error) {
+              console.error(`Failed to fetch user ${otherParticipant}:`, error);
+              return null;
             }
-
-            return {
-              ...chat,
-              otherParticipant: userCache.get(otherParticipant),
-            };
           }),
         );
 
         setChats(updatedChats.filter(Boolean));
       } catch (error) {
         console.error("Error fetching chats:", error);
+        showToast("error", "Failed to get all chats");
       }
     };
 
@@ -78,6 +68,7 @@ function Chats() {
     chat.otherParticipant.fullName.toLowerCase().includes(text),
   );
 
+  // Open Add New Chat Section
   const openAddChat = async () => {
     setShowAddChat(true);
     if (!contacts) {
@@ -91,6 +82,7 @@ function Chats() {
     }
   };
 
+  // Close Add New Chat Section
   const closeAddChat = () => setShowAddChat(false);
 
   return (

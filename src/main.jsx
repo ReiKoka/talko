@@ -5,16 +5,19 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
-import { ChatProvider } from "./context/ChatContext.jsx";
+import { SelectedChatProvider } from "./context/ChatContext.jsx";
+import { ChatsProvider } from "./context/ChatsContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <ChatProvider>
-            <App />
-          </ChatProvider>
+          <ChatsProvider>
+            <SelectedChatProvider>
+              <App />
+            </SelectedChatProvider>
+          </ChatsProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
