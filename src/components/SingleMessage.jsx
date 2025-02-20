@@ -3,12 +3,16 @@ import { format } from "date-fns";
 import Button from "./ui/Button";
 import { HiChevronDown, HiPencilSquare, HiTrash } from "react-icons/hi2";
 import { useEffect, useRef, useState } from "react";
+import DeleteModal from "./DeleteModal";
 
-function SingleMessage({ message }) {
+function SingleMessage({ message, setMessages }) {
   const { user } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
+
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isLoggedUser = user?.id === message?.senderId;
 
@@ -31,8 +35,9 @@ function SingleMessage({ message }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleEdit = () => {
-    console.log(message.id);
+  const handleIsOpenModal = () => {
+    setIsModalOpen(true);
+    setIsOpen(false);
   };
 
   return (
@@ -63,19 +68,27 @@ function SingleMessage({ message }) {
             >
               <Button
                 title="Edit Message"
-                onClick={handleEdit}
                 className="hover:bg-primary group text-foreground hover:text-primary-foreground flex w-fit min-w-full items-center justify-start gap-4 rounded-md p-2"
               >
                 <HiPencilSquare className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
                 <span>Edit Message</span>
               </Button>
+
               <Button
                 title="Delete Message"
+                onClick={handleIsOpenModal}
                 className="hover:bg-primary group text-foreground hover:text-primary-foreground flex min-w-full items-center justify-start gap-4 rounded-md p-2"
               >
                 <HiTrash className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
                 <span>Delete Message</span>
               </Button>
+              <DeleteModal
+                title="Delete Message"
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                id={message.id}
+                setMessages={setMessages}
+              />
             </div>
           </>
         )}

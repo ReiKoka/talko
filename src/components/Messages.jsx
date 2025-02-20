@@ -33,7 +33,7 @@ function Messages() {
         {selectedChat && (
           <div className="flex h-full flex-col overflow-hidden">
             <MessageHeader selectedChat={selectedChat} />
-            <MessageContent messages={messages} />
+            <MessageContent messages={messages} setMessages={setMessages} />
             <MessageInput messages={messages} setMessages={setMessages} />
           </div>
         )}

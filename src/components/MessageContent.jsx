@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { formatMessageTime } from "../utils/helpers";
 import SingleMessage from "./SingleMessage";
 
-function MessageContent({ messages }) {
+function MessageContent({ messages, setMessages }) {
   const lastMessageRef = useRef(null);
 
   useEffect(() => {
@@ -11,9 +11,8 @@ function MessageContent({ messages }) {
     }
   }, [messages]);
 
-
   return (
-    <div className="flex flex-grow flex-col gap-2 overflow-y-auto overflow-x-clip px-2 py-2 lg:py-4">
+    <div className="flex flex-grow flex-col gap-2 overflow-x-clip overflow-y-auto px-2 py-2 lg:py-4">
       {messages.map((message, index) => {
         const messageDate = new Date(message.timestamp);
         const formattedDate = formatMessageTime(messageDate);
@@ -34,7 +33,7 @@ function MessageContent({ messages }) {
                 {formattedDate}
               </div>
             )}
-            <SingleMessage message={message} />
+            <SingleMessage message={message} setMessages={setMessages} />
           </div>
         );
       })}

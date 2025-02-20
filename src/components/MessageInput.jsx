@@ -21,7 +21,7 @@ function MessageInput({ setMessages }) {
       user.id,
       selectedChat.otherParticipant.id,
     );
-
+    
     const senderId = user?.id;
     const chatId = selectedChat.id;
     const timestamp = new Date();
