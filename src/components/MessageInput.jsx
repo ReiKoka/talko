@@ -52,12 +52,12 @@ function MessageInput({ setMessages }) {
 
     // eslint-disable-next-line no-unused-vars
     const { otherParticipant, ...chat } = selectedChat;
-    createNewChat({ ...chat, lastMessage, unreadCount: 1 });
-    createMessage(message);
+    await createNewChat({ ...chat, lastMessage, unreadCount: 1 });
+    await createMessage(message);
     setMessages((prev) => [...prev, message]);
     setChats((prevChats) => [
       ...prevChats,
-      { ...chat, lastMessage, unreadCount: 1 },
+      { ...selectedChat, lastMessage, unreadCount: 1 },
     ]);
     setText("");
   };
