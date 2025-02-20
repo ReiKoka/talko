@@ -1,5 +1,6 @@
 import axios from "axios";
 import { URL } from "./../utils/constants";
+import { getUser } from "./users";
 
 export const getChatsForUser = async (userId) => {
   try {
@@ -9,6 +10,29 @@ export const getChatsForUser = async (userId) => {
     );
 
     return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const findExistingChat = async (userId, contactId) => {
+  try {
+    const chats = await getChatsForUser(userId);
+    const existingChat = chats.find(
+      (chat) =>
+        chat.participants.includes(userId) &&
+        chat.participants.includes(contactId),
+    );
+
+    if (!existingChat) return null;
+
+    const otherParticipantId = existingChat.participants.find(
+      (id) => id !== userId,
+    );
+    const otherParticipant = await getUser(otherParticipantId);
+
+    return { ...existingChat, otherParticipant };
   } catch (error) {
     console.error(error);
     throw error;

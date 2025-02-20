@@ -59,19 +59,6 @@
         "timestamp": "2025-02-06T14:30:00Z"
       },
       "unreadCount": 1
-    },
-    {
-      "id": "7BtRjm_QxP6W4AwLvi6uP",
-      "participants": [
-        "rFHxtYL",
-        "Z-JrCyl"
-      ],
-      "lastMessage": {
-        "senderId": "rFHxtYL",
-        "content": "",
-        "timestamp": "2025-02-17T16:36:08.043Z"
-      },
-      "unreadCount": 0
     }
   ],
   "messages": [
@@ -282,6 +269,38 @@
       "timestamp": "2025-02-17T16:36:16.873Z",
       "status": "delivered",
       "id": "gBCi2d_sTV2wz27Qdiu0h"
+    },
+    {
+      "chatId": "9HLVa_Xx9HYzJ8OSqDxD7",
+      "senderId": "rFHxtYL",
+      "content": "gldf,dfg",
+      "timestamp": "2025-02-17T16:37:15.154Z",
+      "status": "delivered",
+      "id": "PGw51DCGC--zQOTyJIH7K"
+    },
+    {
+      "chatId": "yjbjfIXt1378vjLd3fsjT",
+      "senderId": "rFHxtYL",
+      "content": "dfgdfgdfgdf",
+      "timestamp": "2025-02-17T16:40:42.212Z",
+      "status": "delivered",
+      "id": "zgLcfXmwFLPCMzlW8ITjk"
+    },
+    {
+      "chatId": "AQAV3lmLLo0x9zSXtdISv",
+      "senderId": "rFHxtYL",
+      "content": "cxvxcvxcvxcvxdvxvdx",
+      "timestamp": "2025-02-17T16:41:01.197Z",
+      "status": "delivered",
+      "id": "BQsFwgmm8EPs46k4dFNLp"
+    },
+    {
+      "chatId": 1,
+      "senderId": "rFHxtYL",
+      "content": "What's up mate?",
+      "timestamp": "2025-02-20T08:35:35.297Z",
+      "status": "delivered",
+      "id": "wM3SrGXLDbVSHrha8AD16"
     }
   ]
 }

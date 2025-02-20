@@ -3,25 +3,30 @@ import { useChats } from "../hooks/useChats";
 import { isPicture } from "../utils/helpers";
 import { nanoid } from "nanoid";
 import { useAuth } from "../hooks/useAuth";
-import { createNewChat } from "../services/chats";
+import { findExistingChat } from "../services/chats";
 
 function SingleContact({ contact }) {
   const { user } = useAuth();
   const { setSelectedChat } = useChats();
 
   const handleContactClick = async () => {
+    const existingChat = await findExistingChat(user.id, contact.id);
+
+    if (existingChat) {
+      setSelectedChat(existingChat);
+      return;
+    }
+
     const id = nanoid();
     const participants = [user.id, contact.id];
-    const lastMessage = {
-      senderId: user.id,
-      content: "",
-      timestamp: new Date(),
-    };
-    const unreadCount = 0;
     const otherParticipant = contact;
 
-    const obj = { id, participants, lastMessage, unreadCount };
-    await createNewChat(obj);
+    const obj = {
+      id,
+      participants,
+      otherParticipant,
+    };
+
     setSelectedChat({ ...obj, otherParticipant });
   };
 

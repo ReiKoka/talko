@@ -10,8 +10,6 @@ function Messages() {
   const { selectedChat } = useChats();
   const [messages, setMessages] = useState([]);
 
-  console.log(selectedChat);
-  
   useEffect(() => {
     const fetchMessages = async () => {
       if (!selectedChat) return;
