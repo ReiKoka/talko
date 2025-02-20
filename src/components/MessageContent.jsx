@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import { formatMessageTime } from "../utils/helpers";
 import SingleMessage from "./SingleMessage";
+import { useMessages } from "../hooks/useMessages";
 
-function MessageContent({ messages, setMessages }) {
+function MessageContent() {
+  const { messages, setMessages } = useMessages();
   const lastMessageRef = useRef(null);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ function MessageContent({ messages, setMessages }) {
                 {formattedDate}
               </div>
             )}
-            <SingleMessage message={message} setMessages={setMessages} />
+            <SingleMessage message={message} />
           </div>
         );
       })}

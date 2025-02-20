@@ -2,13 +2,27 @@ import { deleteMessage } from "../services/messages";
 import Modal from "./Modal";
 import Button from "./ui/Button";
 import UndrawThrowAway from "../assets/undraw_throw-away.svg?react";
+import { useChats } from "../hooks/useChats";
+import { useSelectedChat } from "../hooks/useSelectedChat";
+import { useMessages } from "../hooks/useMessages";
 
-function DeleteModal({ title, isModalOpen, setIsModalOpen, id, setMessages }) {
+function DeleteModal({ title, isModalOpen, setIsModalOpen, id }) {
+  const { chats, setChats } = useChats();
+  const { selectedChat } = useSelectedChat();
+  const { messages, setMessages } = useMessages();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     deleteMessage(id);
     setIsModalOpen(false);
     setMessages((messages) => messages.filter((message) => message.id !== id));
+    
+    // TO DO
+    // const chat = chats.find((chat) => chat.id === selectedChat.id);
+    // chat.lastMessage = messages.find(
+    //   (message) => message[messages.length - 1],
+    // ).content;
+    // setChats((prevChats) => [...prevChats, chat]);
   };
 
   return (

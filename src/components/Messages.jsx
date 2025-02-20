@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Topography from "/src/assets/topography.svg?react";
 import { getSingleChatMessages } from "../services/messages";
 import MessageHeader from "./MessageHeader";
 import MessageContent from "./MessageContent";
 import MessageInput from "./MessageInput";
 import { useSelectedChat } from "../hooks/useSelectedChat";
+import { useMessages } from "../hooks/useMessages";
 
 function Messages() {
   const { selectedChat } = useSelectedChat();
-  const [messages, setMessages] = useState([]);
+  const { setMessages } = useMessages();
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -19,7 +20,7 @@ function Messages() {
     };
 
     fetchMessages();
-  }, [selectedChat]);
+  }, [selectedChat, setMessages]);
 
   return (
     <section className="bg-secondary dark:bg-secondary relative hidden overflow-hidden lg:block lg:rounded-tr-lg lg:rounded-br-lg">
@@ -33,8 +34,8 @@ function Messages() {
         {selectedChat && (
           <div className="flex h-full flex-col overflow-hidden">
             <MessageHeader selectedChat={selectedChat} />
-            <MessageContent messages={messages} setMessages={setMessages} />
-            <MessageInput messages={messages} setMessages={setMessages} />
+            <MessageContent />
+            <MessageInput />
           </div>
         )}
       </div>

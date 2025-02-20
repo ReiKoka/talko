@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { SelectedChatProvider } from "./context/ChatContext.jsx";
 import { ChatsProvider } from "./context/ChatsContext";
+import { MessagesContextProvider } from "./context/MessagesContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,7 +16,9 @@ createRoot(document.getElementById("root")).render(
         <AuthProvider>
           <ChatsProvider>
             <SelectedChatProvider>
-              <App />
+              <MessagesContextProvider>
+                <App />
+              </MessagesContextProvider>
             </SelectedChatProvider>
           </ChatsProvider>
         </AuthProvider>

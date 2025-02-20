@@ -5,7 +5,7 @@ import { HiChevronDown, HiPencilSquare, HiTrash } from "react-icons/hi2";
 import { useEffect, useRef, useState } from "react";
 import DeleteModal from "./DeleteModal";
 
-function SingleMessage({ message, setMessages }) {
+function SingleMessage({ message }) {
   const { user } = useAuth();
 
   const menuRef = useRef(null);
@@ -87,7 +87,6 @@ function SingleMessage({ message, setMessages }) {
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
                 id={message.id}
-                setMessages={setMessages}
               />
             </div>
           </>

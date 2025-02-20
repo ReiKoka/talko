@@ -68,8 +68,8 @@
       ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "hi",
-        "timestamp": "2025-02-20T10:24:30.977Z"
+        "content": "ASDNJASNDJAS",
+        "timestamp": "2025-02-20T16:35:53.441Z"
       },
       "unreadCount": 1
     }
@@ -386,6 +386,22 @@
       "timestamp": "2025-02-20T10:14:09.738Z",
       "status": "delivered",
       "id": "GGblD8wMJ3FnDt7oWyRmX"
+    },
+    {
+      "chatId": "nnqwBNLc99620sx-4lQKe",
+      "senderId": "rFHxtYL",
+      "content": "Hello",
+      "timestamp": "2025-02-20T16:35:49.203Z",
+      "status": "delivered",
+      "id": "JF1V32mAtkJGtw3fP4S_F"
+    },
+    {
+      "chatId": "nnqwBNLc99620sx-4lQKe",
+      "senderId": "rFHxtYL",
+      "content": "Hiii",
+      "timestamp": "2025-02-20T16:35:51.289Z",
+      "status": "delivered",
+      "id": "gl5s3TPBJ6rMmeS_XCEa_"
     }
   ]
 }
