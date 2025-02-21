@@ -14,6 +14,7 @@ function Modal({ isOpen, onClose, title, children }) {
   }, [isOpen]);
 
   const handleOutsideClick = (e) => {
+    console.log(dialogRef.current);
     if (e.target === dialogRef.current) {
       onClose();
     }
@@ -24,12 +25,14 @@ function Modal({ isOpen, onClose, title, children }) {
       ref={dialogRef}
       onClose={onClose}
       onClick={handleOutsideClick}
-      className="bg-background text-foreground shadow-light dark:shadow-dark mx-auto my-auto max-w-[600px] min-w-96 rounded-lg p-7"
+      className="bg-background text-foreground shadow-light dark:shadow-dark mx-auto my-auto max-w-[600px] min-w-96 rounded-lg"
     >
-      <h1 className="font-primary mb-6 text-center text-2xl font-bold">
-        {title}
-      </h1>
-      {children}
+      <div className="h-full w-full p-7">
+        <h1 className="font-primary mb-6 text-center text-2xl font-bold">
+          {title}
+        </h1>
+        {children}
+      </div>
     </dialog>
   );
 }
