@@ -6,12 +6,14 @@ import { createMessage } from "../services/messages";
 import { nanoid } from "nanoid";
 import { createNewChat, findExistingChat, updateChat } from "../services/chats";
 import { useChats } from "../hooks/useChats";
+import { useMessages } from "../hooks/useMessages";
 
-function MessageInput({ setMessages }) {
+function MessageInput() {
   const [text, setText] = useState("");
   const { user } = useAuth();
   const { selectedChat, setSelectedChat } = useSelectedChat();
   const { setChats } = useChats();
+  const { setMessages } = useMessages();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,25 +23,36 @@ function MessageInput({ setMessages }) {
       user.id,
       selectedChat.otherParticipant.id,
     );
-    
+
     const senderId = user?.id;
     const chatId = selectedChat.id;
     const timestamp = new Date();
     const id = nanoid();
 
-    // prettier-ignore
-    const message = {chatId, senderId, content: text, timestamp, status: "delivered", id};
+    // // prettier-ignore
+    const message = {
+      chatId,
+      senderId,
+      content: text,
+      timestamp,
+      status: "delivered",
+      id,
+    };
+
     const lastMessage = {
       senderId: message.senderId,
       content: message.content,
       timestamp: message.timestamp,
     };
 
+    // eslint-disable-next-line no-unused-vars
+    const { otherParticipant, ...chatWithoutOtherParticipant } = selectedChat;
+    const updatedChat = { ...chatWithoutOtherParticipant, lastMessage };
+
     if (existingChat) {
       createMessage(message);
-      updateChat(lastMessage, selectedChat.id);
+      updateChat(updatedChat, selectedChat.id);
       setSelectedChat((prevChat) => ({ ...prevChat, lastMessage }));
-      setChats;
       setMessages((prev) => [...prev, message]);
       setChats((prevChats) =>
         prevChats.map((chat) =>
@@ -50,9 +63,11 @@ function MessageInput({ setMessages }) {
       return;
     }
 
-    // eslint-disable-next-line no-unused-vars
-    const { otherParticipant, ...chat } = selectedChat;
-    await createNewChat({ ...chat, lastMessage, unreadCount: 1 });
+    await createNewChat({
+      ...chatWithoutOtherParticipant,
+      lastMessage,
+      unreadCount: 1,
+    });
     await createMessage(message);
     setMessages((prev) => [...prev, message]);
     setChats((prevChats) => [

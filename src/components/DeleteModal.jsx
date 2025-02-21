@@ -5,24 +5,57 @@ import UndrawThrowAway from "../assets/undraw_throw-away.svg?react";
 import { useChats } from "../hooks/useChats";
 import { useSelectedChat } from "../hooks/useSelectedChat";
 import { useMessages } from "../hooks/useMessages";
+import { updateChat } from "../services/chats";
 
 function DeleteModal({ title, isModalOpen, setIsModalOpen, id }) {
-  const { chats, setChats } = useChats();
-  const { selectedChat } = useSelectedChat();
-  const { messages, setMessages } = useMessages();
+  const { setChats } = useChats();
+  const { selectedChat, setSelectedChat } = useSelectedChat();
+  const { setMessages } = useMessages();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     deleteMessage(id);
     setIsModalOpen(false);
-    setMessages((messages) => messages.filter((message) => message.id !== id));
-    
-    // TO DO
-    // const chat = chats.find((chat) => chat.id === selectedChat.id);
-    // chat.lastMessage = messages.find(
-    //   (message) => message[messages.length - 1],
-    // ).content;
-    // setChats((prevChats) => [...prevChats, chat]);
+
+    setMessages((prevMessages) => {
+      const updatedMessages = prevMessages.filter(
+        (message) => message.id !== id,
+      );
+
+      if (selectedChat && updatedMessages.length > 0) {
+        const lastMessage = {
+          senderId: updatedMessages[updatedMessages.length - 1].senderId,
+          content: updatedMessages[updatedMessages.length - 1].content,
+          timestamp: updatedMessages[updatedMessages.length - 1].timestamp,
+        };
+
+        // eslint-disable-next-line no-unused-vars
+        const { otherParticipant, ...chatWithoutOtherParticipant } =
+          selectedChat;
+        const updatedChat = { ...chatWithoutOtherParticipant, lastMessage };
+
+        (async () => {
+          try {
+            await updateChat(updatedChat, selectedChat.id);
+
+            setSelectedChat((prevChat) => ({
+              ...prevChat,
+              lastMessage,
+            }));
+
+            setChats((prevChats) =>
+              prevChats.map((chat) =>
+                chat.id === selectedChat.id ? { ...chat, lastMessage } : chat,
+              ),
+            );
+          } catch (error) {
+            console.error("Error updating chat:", error);
+          }
+        })();
+      }
+
+      return updatedMessages;
+    });
   };
 
   return (

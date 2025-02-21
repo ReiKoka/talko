@@ -49,11 +49,9 @@ export const createNewChat = async (obj) => {
   }
 };
 
-export const updateChat = async (lastMessage, chatId) => {
+export const updateChat = async (chat, chatId) => {
   try {
-    const response = await axios.patch(`${URL}/chats/${chatId}`, {
-      lastMessage,
-    });
+    const response = await axios.put(`${URL}/chats/${chatId}`, chat);
 
     return response.data;
   } catch (error) {
