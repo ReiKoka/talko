@@ -12,8 +12,9 @@ function SingleChat({ chat }) {
 
   return (
     <div
-      className="hover:bg-secondary/50 group grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4"
+      className={`hover:bg-secondary/50 focus:bg-secondary/50 group grid cursor-pointer grid-cols-[50px_1fr] gap-2 px-2 py-2.5 lg:gap-4 lg:px-4`}
       onClick={() => setSelectedChat(chat)}
+      tabIndex={0}
     >
       <div className="bg-secondary h-full max-h-[50px] w-full max-w-[50px] rounded-full">
         {isPicture(chat?.otherParticipant?.profilePicture) ? (

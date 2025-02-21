@@ -10,7 +10,7 @@ function Input({
   value,
   onChange,
   className,
-  iconClassName
+  iconClassName,
 }) {
   const baseStyles =
     "border-muted block w-full min-w-full rounded-lg border p-2.5 text-foreground text-sm focus-visible:border-primary focus-visible:ring-primary focus-visible:ring-1 focus-visible:outline-0";

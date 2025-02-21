@@ -31,12 +31,23 @@
       "profilePicture": "https://mighty.tools/mockmind-api/content/human/5.jpg",
       "status": "offline",
       "id": "Z-JrCyl"
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$.Ymeasf9x3a2CX6bfEnUeOqbs6bhGcfhcKhgBz2gJder.LIniwbl2",
+      "fullName": "Test Test",
+      "profilePicture": "",
+      "status": "offline",
+      "id": "a7H0X8P"
     }
   ],
   "chats": [
     {
       "id": 1,
-      "participants": ["rFHxtYL", "uzPIa7q"],
+      "participants": [
+        "rFHxtYL",
+        "uzPIa7q"
+      ],
       "lastMessage": {
         "senderId": "rFHxtYL",
         "content": "hii",
@@ -46,7 +57,10 @@
     },
     {
       "id": 2,
-      "participants": ["rFHxtYL", "ahUdsbm"],
+      "participants": [
+        "rFHxtYL",
+        "ahUdsbm"
+      ],
       "lastMessage": {
         "senderId": "rFHxtYL",
         "content": "aasdfadf",
@@ -56,11 +70,27 @@
     },
     {
       "id": "HNaNjCBC27KxMeFqSq0IM",
-      "participants": ["rFHxtYL", "Z-JrCyl"],
+      "participants": [
+        "rFHxtYL",
+        "Z-JrCyl"
+      ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "Super fare",
-        "timestamp": "2025-02-21T10:09:21.755Z"
+        "content": "amsdkmakwmdkwamkdmkamk21mkmadkmdkamkdmkWAMKAWMDFA\n",
+        "timestamp": "2025-02-21T14:27:02.933Z"
+      },
+      "unreadCount": 1
+    },
+    {
+      "id": "ITvDH5zNPC0_tnXPYO9FC",
+      "participants": [
+        "a7H0X8P",
+        "rFHxtYL"
+      ],
+      "lastMessage": {
+        "senderId": "a7H0X8P",
+        "content": "maksdfkmaef",
+        "timestamp": "2025-02-21T14:28:24.046Z"
       },
       "unreadCount": 1
     }
@@ -315,20 +345,28 @@
       "id": "8I_Cre7PZzdbv7GIc6uMx"
     },
     {
-      "chatId": "HNaNjCBC27KxMeFqSq0IM",
-      "senderId": "rFHxtYL",
-      "content": "Super fare",
-      "timestamp": "2025-02-21T10:09:21.755Z",
-      "status": "delivered",
-      "id": "PyJyAumdPD4SbSa-lXBVk"
-    },
-    {
       "chatId": 2,
       "senderId": "rFHxtYL",
       "content": "aasdfadf",
       "timestamp": "2025-02-21T10:21:55.069Z",
       "status": "delivered",
       "id": "UtuEO2s0diL5tqZUR4UoW"
+    },
+    {
+      "chatId": "HNaNjCBC27KxMeFqSq0IM",
+      "senderId": "rFHxtYL",
+      "content": "amsdkmakwmdkwamkdmkamk21mkmadkmdkamkdmkWAMKAWMDFA\n",
+      "timestamp": "2025-02-21T14:27:02.933Z",
+      "status": "delivered",
+      "id": "HfhhvuK02sojq_n6eKNjk"
+    },
+    {
+      "chatId": "ITvDH5zNPC0_tnXPYO9FC",
+      "senderId": "a7H0X8P",
+      "content": "maksdfkmaef",
+      "timestamp": "2025-02-21T14:28:24.046Z",
+      "status": "delivered",
+      "id": "SB9PDAru0ROlsg047A4n5"
     }
   ]
 }

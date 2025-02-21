@@ -82,7 +82,6 @@ function Chats() {
     }
   };
 
-  // Close Add New Chat Section
   const closeAddChat = () => setShowAddChat(false);
 
   return (
@@ -105,7 +104,7 @@ function Chats() {
         <SearchInput value={text} onChange={handleSearch} />
       </div>
 
-      <div className="flex flex-col overflow-y-auto">
+      <div className="flex flex-col-reverse overflow-y-auto">
         {filteredChats.length ? (
           filteredChats?.map((chat) => (
             <SingleChat key={chat?.id} chat={chat} />
