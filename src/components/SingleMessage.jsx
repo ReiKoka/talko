@@ -4,6 +4,7 @@ import Button from "./ui/Button";
 import { HiChevronDown, HiPencilSquare, HiTrash } from "react-icons/hi2";
 import { useEffect, useRef, useState } from "react";
 import DeleteModal from "./DeleteModal";
+import EditModal from "./EditModal";
 
 function SingleMessage({ message }) {
   const { user } = useAuth();
@@ -12,7 +13,8 @@ function SingleMessage({ message }) {
   const buttonRef = useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const isLoggedUser = user?.id === message?.senderId;
 
@@ -35,8 +37,13 @@ function SingleMessage({ message }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleIsOpenModal = () => {
-    setIsModalOpen(true);
+  const handleClickDelete = () => {
+    setIsDeleteModalOpen(true);
+    setIsOpen(false);
+  };
+
+  const handleClickEdit = () => {
+    setIsEditModalOpen(true);
     setIsOpen(false);
   };
 
@@ -69,6 +76,7 @@ function SingleMessage({ message }) {
               <Button
                 title="Edit Message"
                 className="hover:bg-primary group text-foreground hover:text-primary-foreground flex w-fit min-w-full items-center justify-start gap-4 rounded-md p-2"
+                onClick={handleClickEdit}
               >
                 <HiPencilSquare className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
                 <span>Edit Message</span>
@@ -76,7 +84,7 @@ function SingleMessage({ message }) {
 
               <Button
                 title="Delete Message"
-                onClick={handleIsOpenModal}
+                onClick={handleClickDelete}
                 className="hover:bg-primary group text-foreground hover:text-primary-foreground flex min-w-full items-center justify-start gap-4 rounded-md p-2"
               >
                 <HiTrash className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
@@ -84,9 +92,16 @@ function SingleMessage({ message }) {
               </Button>
               <DeleteModal
                 title="Delete Message"
-                isModalOpen={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
+                isModalOpen={isDeleteModalOpen}
+                setIsModalOpen={setIsDeleteModalOpen}
                 id={message.id}
+              />
+              <EditModal
+                title="Edit Modal"
+                isModalOpen={isEditModalOpen}
+                setIsModalOpen={setIsEditModalOpen}
+                id={message.id}
+                content={message.content}
               />
             </div>
           </>

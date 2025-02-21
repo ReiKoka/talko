@@ -10,7 +10,7 @@ function ThemeToggle() {
 
   return (
     <div
-      className="group text-muted-foreground hover:text-primary relative flex w-full cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-300 ease-out"
+      className="group text-muted-foreground hover:text-primary relative h-10 flex w-full cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-300 ease-out"
       onClick={handleToggle}
     >
       <HiOutlineSun

@@ -55,8 +55,8 @@
       ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "qweqweqweqweqwe",
-        "timestamp": "2025-02-21T10:04:39.900Z"
+        "content": "aasdfadf",
+        "timestamp": "2025-02-21T10:21:55.069Z"
       },
       "unreadCount": 1
     },
@@ -68,7 +68,7 @@
       ],
       "lastMessage": {
         "senderId": "rFHxtYL",
-        "content": "aaenjfnajdngajn'wedf",
+        "content": "banana",
         "timestamp": "2025-02-21T10:09:26.309Z"
       },
       "unreadCount": 1
@@ -342,10 +342,18 @@
     {
       "chatId": "HNaNjCBC27KxMeFqSq0IM",
       "senderId": "rFHxtYL",
-      "content": "aaenjfnajdngajn'wedf",
+      "content": "banana",
       "timestamp": "2025-02-21T10:09:26.309Z",
       "status": "delivered",
       "id": "9vUmD2sqZXWwpnNsBW_Y-"
+    },
+    {
+      "chatId": 2,
+      "senderId": "rFHxtYL",
+      "content": "aasdfadf",
+      "timestamp": "2025-02-21T10:21:55.069Z",
+      "status": "delivered",
+      "id": "UtuEO2s0diL5tqZUR4UoW"
     }
   ]
 }
