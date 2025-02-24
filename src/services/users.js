@@ -49,3 +49,15 @@ export const getAllUsers = async (id) => {
     throw error;
   }
 };
+
+export const editUser = async (user) => {
+  if (!user) return;
+  try {
+    const res = await axios.put(`${URL}/users/${user.id}`, user)
+    return res.data
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+

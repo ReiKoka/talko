@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { isPicture } from "../utils/helpers";
 import Input from "./ui/Input";
@@ -10,14 +10,14 @@ import {
   HiUserCircle,
 } from "react-icons/hi2";
 import Button from "./ui/Button";
+import Modal from "./Modal";
+import DropDownMenu from "./DropdownMenu";
 
 function Profile() {
   const { user } = useAuth();
-  const menuRef = useRef(null);
-  const buttonRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [fullName, setFullName] = useState(() => (user ? user?.fullName : ""));
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [fullName, setFullName] = useState(user?.fullName || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,28 +30,20 @@ function Profile() {
     }
   }, [user]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        !buttonRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
-  console.log(isOpen);
-
-  const handleClickEdit = () => {};
+  const menuItems = [
+    {
+      title: "Edit Picture",
+      label: "Edit Picture",
+      icon: HiPencilSquare,
+      onClick: () => setIsEditModalOpen(true),
+    },
+    {
+      title: "Remove Picture",
+      label: "Remove Picture",
+      icon: HiTrash,
+      onClick: () => setIsEditModalOpen(true),
+    },
+  ];
 
   return (
     <div>
@@ -62,7 +54,7 @@ function Profile() {
         <div className="group relative h-52 max-h-52 w-52 max-w-52 cursor-pointer rounded-full">
           {isPicture(user?.profilePicture) ? (
             <img
-              src={`${isPicture(user?.profilePicture) && user?.profilePicture} `}
+              src={user?.profilePicture}
               alt="Profile Picture"
               className="rounded-full object-top"
             />
@@ -70,41 +62,28 @@ function Profile() {
             <HiUserCircle className="fill-muted-foreground block h-52 w-52" />
           )}
           <Button
-            ref={buttonRef}
             title="open menu"
             type="button"
             variant="icon"
             className="bg-border/90 text-background dark:text-foreground absolute top-0 left-0 z-20 hidden min-h-52 min-w-52 flex-col gap-2 rounded-full font-bold group-hover:flex"
-            onClick={handleClick}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <HiCamera className="h-12 w-12" />
             <span className="max-w-40">Change Profile Picture</span>
           </Button>
-
-          <div
-            ref={menuRef}
-            className={`font-primary bg-background absolute top-[72%] -right-30 flex w-44 min-w-fit flex-col rounded-lg p-2 transition-all duration-500 ${isOpen ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"} z-50`}
-          >
-            <Button
-              title="Edit Picture"
-              className="hover:bg-primary group text-foreground hover:text-primary-foreground flex w-fit min-w-full items-center justify-start gap-4 rounded-md p-2"
-              onClick={handleClickEdit}
-            >
-              <HiPencilSquare className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
-              <span>Edit Picture</span>
-            </Button>
-            <Button
-              title="Remove Picture"
-              className="hover:bg-primary group text-foreground hover:text-primary-foreground flex w-fit min-w-full items-center justify-start gap-4 rounded-md p-2"
-              onClick={handleClickEdit}
-            >
-              <HiTrash className="fill-foreground group-hover:fill-primary-foreground h-5 w-5" />
-              <span>Remove Picture</span>
-            </Button>{" "}
-          </div>
+          <DropDownMenu
+            items={menuItems}
+            isOpen={isMenuOpen}
+            setIsOpen={setIsMenuOpen}
+            position="top-[70%] -right-20"
+          />
+          <Modal
+            title="Edit Profile Picture"
+            isOpen={isEditModalOpen}
+            onClose={() => setIsEditModalOpen(false)}
+          />
         </div>
       </div>
-
       <form
         onSubmit={handleSubmit}
         className="flex w-full flex-col gap-4 p-2 lg:p-4"

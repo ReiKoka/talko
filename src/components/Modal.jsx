@@ -14,7 +14,6 @@ function Modal({ isOpen, onClose, title, children }) {
   }, [isOpen]);
 
   const handleOutsideClick = (e) => {
-    console.log(dialogRef.current);
     if (e.target === dialogRef.current) {
       onClose();
     }
