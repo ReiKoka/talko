@@ -22,13 +22,6 @@ function Profile() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [fullName, setFullName] = useState(user?.fullName || "");
-
-  useEffect(() => {
-    if (user?.fullName) {
-      setFullName(user.fullName);
-    }
-  }, [user]);
 
   const menuItems = [
     {
@@ -104,7 +97,7 @@ function Profile() {
         </div>
       </div>
 
-      <ProfileNameForm fullName={fullName} setFullName={setFullName} />
+      {user && <ProfileNameForm user={user} />}
     </div>
   );
 }

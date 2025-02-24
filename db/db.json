@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "fullName": "Rei Koka",
       "email": "reikoka1@outlook.com",
-      "password": "$2a$10$OWTkxRbwh0hr8yPDKkte7.OqnWqbszhFWwDB5aypBzh4ULgZza7wK",
-      "id": "rFHxtYL",
+      "password": "$2a$10$luo9KVYxCx0L1a7xc9L/CeCzBYpoNImo9bNTfJ9vP5PmbalCRuA6u",
+      "fullName": "Kokaa",
       "profilePicture": "https://mighty.tools/mockmind-api/content/human/98.jpg",
-      "status": "online"
+      "status": "offline",
+      "id": "rFHxtYL"
     },
     {
       "fullName": "Rei Koka",
@@ -62,9 +62,9 @@
         "ahUdsbm"
       ],
       "lastMessage": {
-        "senderId": "rFHxtYL",
-        "content": "aasdfadf",
-        "timestamp": "2025-02-21T10:21:55.069Z"
+        "senderId": "ahUdsbm",
+        "content": "afhaebfhabwhfawef",
+        "timestamp": "2025-02-24T10:35:17.775Z"
       },
       "unreadCount": 1
     },
@@ -359,6 +359,14 @@
       "timestamp": "2025-02-24T09:15:24.042Z",
       "status": "delivered",
       "id": "zJXAIUO1xTnFe1MoAD-yy"
+    },
+    {
+      "chatId": 2,
+      "senderId": "ahUdsbm",
+      "content": "afhaebfhabwhfawef",
+      "timestamp": "2025-02-24T10:35:17.775Z",
+      "status": "delivered",
+      "id": "4K_hUOReakxf--MQ9f3NE"
     }
   ]
 }

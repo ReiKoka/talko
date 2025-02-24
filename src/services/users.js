@@ -51,13 +51,17 @@ export const getAllUsers = async (id) => {
 };
 
 export const editUser = async (user) => {
-  if (!user) return;
+  if (!user || !user.id) return;
   try {
-    const res = await axios.put(`${URL}/users/${user.id}`, user)
-    return res.data
+    const payload = {
+      ...(user.fullName && { fullName: user.fullName }),
+      ...(user.profilePicture && { profilePicture: user.profilePicture })
+    };
+    const res = await axios.patch(`${URL}/users/${user.id}`, payload);
+    return res.data;
   } catch (error) {
     console.error(error);
     throw error;
   }
-}
+};
 
