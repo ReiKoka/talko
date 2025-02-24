@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { isPicture } from "../utils/helpers";
-import Input from "./ui/Input";
+
 import Title from "./ui/Title";
 import {
   HiCamera,
@@ -12,17 +12,15 @@ import {
 import Button from "./ui/Button";
 import Modal from "./Modal";
 import DropDownMenu from "./DropdownMenu";
+import ProfileNameForm from "./ProfileNameForm";
 
 function Profile() {
   const { user } = useAuth();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [fullName, setFullName] = useState(user?.fullName || "");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("form submit");
-  };
 
   useEffect(() => {
     if (user?.fullName) {
@@ -41,7 +39,7 @@ function Profile() {
       title: "Remove Picture",
       label: "Remove Picture",
       icon: HiTrash,
-      onClick: () => setIsEditModalOpen(true),
+      onClick: () => setIsDeleteModalOpen(true),
     },
   ];
 
@@ -51,7 +49,7 @@ function Profile() {
         <Title title="Profile" />
       </div>
       <div className="bg-secondary/40 grid place-items-center py-8">
-        <div className="group relative h-52 max-h-52 w-52 max-w-52 cursor-pointer rounded-full">
+        <div className="group/profilePic relative h-52 max-h-52 w-52 max-w-52 cursor-pointer rounded-full">
           {isPicture(user?.profilePicture) ? (
             <img
               src={user?.profilePicture}
@@ -65,7 +63,7 @@ function Profile() {
             title="open menu"
             type="button"
             variant="icon"
-            className="bg-border/90 text-background dark:text-foreground absolute top-0 left-0 z-20 hidden min-h-52 min-w-52 flex-col gap-2 rounded-full font-bold group-hover:flex"
+            className="bg-border/90 text-background dark:text-foreground absolute top-0 left-0 z-20 hidden min-h-52 min-w-52 flex-col gap-2 rounded-full font-bold group-hover/profilePic:flex"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <HiCamera className="h-12 w-12" />
@@ -82,26 +80,15 @@ function Profile() {
             isOpen={isEditModalOpen}
             onClose={() => setIsEditModalOpen(false)}
           />
+          <Modal
+            title="Remove Profile Picture"
+            isOpen={isDeleteModalOpen}
+            onClose={() => setIsDeleteModalOpen(false)}
+          />
         </div>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className="flex w-full flex-col gap-4 p-2 lg:p-4"
-      >
-        <Input
-          id="fullName"
-          label="Your name"
-          type="text"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          className="border-border rounded-none border-0 border-b px-1 focus-visible:border-b-2 focus-visible:ring-0"
-          autocomplete="off"
-        />
-        <p className="font-primary text-muted-foreground px-4 text-center text-sm">
-          This is not your ID or email address. This is how your name looks to
-          other Talko accounts
-        </p>
-      </form>
+
+      <ProfileNameForm fullName={fullName} setFullName={setFullName} />
     </div>
   );
 }
