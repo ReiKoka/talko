@@ -21,17 +21,33 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) showToast("error", "Fields are empty");
-    const user = { email, password };
-    const data = await login(user);
+    if (!email || !password) {
+      showToast("error", "Fields are empty");
+      return; // Stop execution if fields are empty
+    }
 
-    setToken(data.accessToken);
-    setUser(data.user);
-    navigate("/");
-    showToast(
-      "success",
-      `Welcome back ${data.user?.fullName.split(" ").at(0)}`,
-    );
+    const user = { email, password };
+    try {
+      const data = await login(user);
+
+      setToken(data.accessToken);
+      setUser(data.user);
+      navigate("/");
+      showToast(
+        "success",
+        `Welcome back ${data.user?.fullName.split(" ").at(0)}`,
+      );
+    } catch (error) {
+      if (error.response) {
+        const errorMsg = error.response.data.message || "Incorrect Credentials";
+        showToast("error", errorMsg);
+      } else if (error.request) {
+        showToast("error", "Network error, please try again");
+      } else {
+        showToast("error", "An unexpected error occurred");
+      }
+      console.error("Login error:", error);
+    }
   };
 
   if (token) return <Navigate to="/" replace />;
