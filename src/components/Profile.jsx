@@ -13,6 +13,8 @@ import Button from "./ui/Button";
 import Modal from "./Modal";
 import DropDownMenu from "./DropdownMenu";
 import ProfileNameForm from "./ProfileNameForm";
+import EditProfilePictureForm from "./EditProfilePictureForm";
+import DeleteProfilePictureForm from "./DeleteProfilePictureFrom";
 
 function Profile() {
   const { user } = useAuth();
@@ -79,12 +81,26 @@ function Profile() {
             title="Edit Profile Picture"
             isOpen={isEditModalOpen}
             onClose={() => setIsEditModalOpen(false)}
-          />
+          >
+            {user && (
+              <EditProfilePictureForm
+                user={user}
+                setIsEditModalOpen={setIsEditModalOpen}
+              />
+            )}
+          </Modal>
           <Modal
             title="Remove Profile Picture"
             isOpen={isDeleteModalOpen}
             onClose={() => setIsDeleteModalOpen(false)}
-          />
+          >
+            {user && (
+              <DeleteProfilePictureForm
+                user={user}
+                setIsDeleteModalOpen={setIsDeleteModalOpen}
+              />
+            )}
+          </Modal>
         </div>
       </div>
 
